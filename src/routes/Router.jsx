@@ -1,17 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import EditAddressPage from "../pages/EditAddressPage/EditAddressPage"
-import CartPage from "../pages/CartPage/CartPage"
-import EditNamePage from "../pages/EditNamePage/EditNamePage"
-import FeedPage from "../pages/FeedPage/FeedPage"
-import LoginPage from "../pages/LoginPage/LoginPage"
-import ProfilePage from "../pages/ProfilePage/ProfilePage"
-import RestaurantDetailsPage from "../pages/RestaurantDetailsPage/RestaurantDetailsPage"
-import SearchPage from "../pages/SearchPage/SearchPage"
-import SignupPage from "../pages/SignupPage/SignupPage"
-import AddAddressPage from "../pages/AddAddressPage/AddAddressPage"
+import {EditAddressPage} from "../pages/EditAddressPage/EditAddressPage"
+import {CartPage} from "../pages/CartPage/CartPage"
+import {EditNamePage} from "../pages/EditNamePage/EditNamePage"
+import {FeedPage} from "../pages/FeedPage/FeedPage"
+import {LoginPage} from "../pages/LoginPage/LoginPage"
+import {ProfilePage} from "../pages/ProfilePage/ProfilePage"
+import {RestaurantDetailsPage} from "../pages/RestaurantDetailsPage/RestaurantDetailsPage"
+import {SearchPage} from "../pages/SearchPage/SearchPage"
+import {SignupPage} from "../pages/SignupPage/SignupPage"
+import {AddAddressPage} from "../pages/AddAddressPage/AddAddressPage"
 
 
-const Router = () => {
+export function Router() {
     return(
         <BrowserRouter>
             <Routes>
@@ -29,5 +29,3 @@ const Router = () => {
         </BrowserRouter>
     )
 }
-
-export default Router;

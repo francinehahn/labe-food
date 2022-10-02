@@ -1,9 +1,7 @@
-import { ButtonStyle } from "./styled"
+import React from "react"
+import { ButtonStyle } from "./style"
 
-export const Button = ( {color, buttonTitle} ) => {
 
-    return (
-        <ButtonStyle color={color}>{buttonTitle}</ButtonStyle>
-    )
-
+export function Button ( {color, buttonTitle} ) {
+    return <ButtonStyle color={color}>{buttonTitle}</ButtonStyle>
 }

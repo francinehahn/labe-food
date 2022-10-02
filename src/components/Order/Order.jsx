@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {OrderStyle} from './style'
 import {AiOutlineClockCircle} from 'react-icons/ai'
 

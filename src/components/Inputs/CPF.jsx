@@ -1,7 +1,8 @@
+import React from "react"
 import { InputStyle } from "./styled"
 
-export const CPF = ({ value, onChange, color, isValid }) => {
 
+export function CPF ({ value, onChange, color, isValid }) {
     return (
         <InputStyle color={color}>
             <label>CPF*</label>

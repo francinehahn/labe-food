@@ -12,10 +12,10 @@ import { useForm } from "../../hooks/useForm"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import {BASE_URL, validateStreet, validateNumber, validateComplement, validateNeighbourhood, validateCity, validateState} from "../../constants/constants";
-import { goToProfilePage } from "../../routes/coordinator";
+import { goToProfilePage } from "../../routes/coordinator"
 
 
-function EditAddressPage() {
+export function EditAddressPage() {
     const navigate = useNavigate()
 
     let color
@@ -89,5 +89,3 @@ function EditAddressPage() {
         </>
     )
 }
-
-export default EditAddressPage

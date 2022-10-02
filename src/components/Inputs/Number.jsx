@@ -1,7 +1,8 @@
+import React from "react"
 import { InputStyle } from "./styled"
 
-export const Number = ({ value, onChange, color }) => {
 
+export function Number ({ value, onChange, color }) {
     return (
         <InputStyle color={color}>
             <label>Número*</label>

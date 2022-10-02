@@ -1,7 +1,7 @@
 import React from "react"
 import {IoIosArrowBack} from 'react-icons/all'
 import { useNavigate } from "react-router-dom"
-import {HeaderContainer, DontShowArrow} from './styled'
+import {HeaderContainer, DontShowArrow} from './style'
 
 export function Header({showArrow, showTitle, title}) {
     const navigate = useNavigate()

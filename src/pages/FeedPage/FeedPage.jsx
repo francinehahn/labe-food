@@ -6,13 +6,13 @@ import {Loading} from '../../components/Loading/Loading'
 import { goToSearchPage } from "../../routes/coordinator";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "../../components/Footer/Footer"
-import RestaurantButtonCard from "../../components/RestaurantButtonCard/RestaurantButtonCard";
+import {RestaurantButtonCard} from "../../components/RestaurantButtonCard/RestaurantButtonCard"
 import { Order } from "../../components/Order/Order";
-import useProtectedPage from "../../hooks/useProtectedPage";
-import useRequestData from "../../hooks/useRequestData";
+import {useProtectedPage} from "../../hooks/useProtectedPage";
+import {useRequestData} from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constants/constants";
 
-const FeedPage = () => {
+export function FeedPage() {
 
     useProtectedPage()
 
@@ -65,5 +65,3 @@ const FeedPage = () => {
         </FeedPageStyle>
     )
 }
-
-export default FeedPage;

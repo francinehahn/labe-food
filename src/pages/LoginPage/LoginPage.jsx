@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from "react";
-import { Email } from "../../components/Inputs/Email";
-import { Password } from "../../components/Inputs/Password";
-import { Button } from "../../components/Button/Button";
-import logo from '../../images/logo.png';
-import logoblack from '../../images/logo-black.png';
-import { LoginPageLoading, LoginPageStyle, TextContainer } from "./style";
-import { Link } from "react-router-dom";
-import { useForm } from "../../hooks/useForm";
-import { useNavigate } from "react-router-dom";
-import { goToFeedPage, goToAddAddressPage } from "../../routes/coordinator";
-import axios from "axios";
-import { BASE_URL } from "../../constants/constants";
-import { validateEmail, validatePassword } from "../../constants/constants";
+import React, { useEffect, useState } from "react"
+import { Email } from "../../components/Inputs/Email"
+import { Password } from "../../components/Inputs/Password"
+import { Button } from "../../components/Button/Button"
+import logo from '../../images/logo.png'
+import logoblack from '../../images/logo-black.png'
+import { LoginPageLoading, LoginPageStyle, TextContainer } from "./style"
+import { Link } from "react-router-dom"
+import { useForm } from "../../hooks/useForm"
+import { useNavigate } from "react-router-dom"
+import { goToFeedPage, goToAddAddressPage } from "../../routes/coordinator"
+import axios from "axios"
+import { BASE_URL } from "../../constants/constants"
+import { validateEmail, validatePassword } from "../../constants/constants"
 import {Loading} from '../../components/Loading/Loading'
 
-function LoginPage() {
+export function LoginPage() {
 
     const [showLogo, setShowLogo] = useState(true)
     const [loading, setLoading] = useState(false)
@@ -98,5 +98,3 @@ function LoginPage() {
 
     )
 }
-
-export default LoginPage;

@@ -1,20 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 import {Header} from '../../components/Header/Header'
-import { Email } from "../../components/Inputs/Email";
-import { Name } from "../../components/Inputs/Name";
-import { CPF } from "../../components/Inputs/CPF";
-import logo from '../../images/logo.png';
-import { SignupPageStyle, TextContainer } from "./style";
-import { Password } from "../../components/Inputs/Password";
-import { Button } from "../../components/Button/Button";
-import { useForm } from "../../hooks/useForm";
-import axios from "axios";
-import { BASE_URL } from "../../constants/constants";
-import { goToAddAddressPage } from "../../routes/coordinator";
-import { useNavigate } from "react-router-dom";
-import { validateCPF, validateEmail, validatePassword, validateName } from "../../constants/constants";
+import { Email } from "../../components/Inputs/Email"
+import { Name } from "../../components/Inputs/Name"
+import { CPF } from "../../components/Inputs/CPF"
+import logo from '../../images/logo.png'
+import { SignupPageStyle, TextContainer } from "./style"
+import { Password } from "../../components/Inputs/Password"
+import { Button } from "../../components/Button/Button"
+import { useForm } from "../../hooks/useForm"
+import axios from "axios"
+import { BASE_URL } from "../../constants/constants"
+import { goToAddAddressPage } from "../../routes/coordinator"
+import { useNavigate } from "react-router-dom"
+import { validateCPF, validateEmail, validatePassword, validateName } from "../../constants/constants"
 
-function SignupPage() {
+
+export function SignupPage() {
 
     const navigate = useNavigate()
 
@@ -93,5 +94,3 @@ function SignupPage() {
         </>
     )
 }
-
-export default SignupPage;

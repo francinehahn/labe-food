@@ -1,7 +1,7 @@
 import React from "react"
-import Router from "../src/routes/Router"
-import GlobalState from "../src/global/GlobalState"
-import { GlobalStyle } from "./global/GlobalStyle"
+import {Router} from "../src/routes/Router"
+import {GlobalState} from "../src/context/GlobalState"
+import { GlobalStyle } from "./globalStyle/GlobalStyle"
 
 
 function App() {

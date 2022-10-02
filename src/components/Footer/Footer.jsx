@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 import {BsHouseDoor, BsCart3, BsPerson} from 'react-icons/all'
 import {StyleFooter} from './style'
 
+
 export function Footer (props) {
 
     const navigate = useNavigate()

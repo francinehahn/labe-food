@@ -1,17 +1,18 @@
-import React from "react";
-import { Header } from "../../components/Header/Header";
+import React from "react"
+import { Header } from "../../components/Header/Header"
 import icon_edit from "../../images/edit.png"
-import { ProfileStyle, AdressStyle, StyleHistory, ProfilePageStyle} from "./style";
-import { OrderHistoryCard } from "../../components/OrderHistoryCard/OrderHistoryCard";
-import { Footer } from "../../components/Footer/Footer";
+import { ProfileStyle, AdressStyle, StyleHistory, ProfilePageStyle} from "./style"
+import { OrderHistoryCard } from "../../components/OrderHistoryCard/OrderHistoryCard"
+import { Footer } from "../../components/Footer/Footer"
 import * as MyRoutes from "../../routes/coordinator"
-import { useNavigate } from "react-router-dom";
-import useRequestData from "../../hooks/useRequestData";
-import { BASE_URL } from "../../constants/constants";
-import useProtectedPage from "../../hooks/useProtectedPage";
+import { useNavigate } from "react-router-dom"
+import {useRequestData} from "../../hooks/useRequestData"
+import { BASE_URL } from "../../constants/constants"
+import {useProtectedPage} from "../../hooks/useProtectedPage"
 import { Loading } from '../../components/Loading/Loading'
 
-const ProfilePage = () => {
+
+export function ProfilePage() {
 
     useProtectedPage()
 
@@ -36,20 +37,20 @@ const ProfilePage = () => {
     const Profile = data &&
         <ProfileStyle>
             <div>
-                <span>{data.user.name}</span>
-                <span>{data.user.email}</span>
-                <span>{data.user.cpf}</span>
+                <p>{data.user.name}</p>
+                <p>{data.user.email}</p>
+                <p>{data.user.cpf}</p>
             </div>
-            <img onClick={() => MyRoutes.goToEditNamePage(navigate)} src={icon_edit} alt="Icone de edição"></img>
+            <img onClick={() => MyRoutes.goToEditNamePage(navigate)} src={icon_edit} alt="Icone de edição"/>
         </ProfileStyle>
 
      const Address = data &&
         <AdressStyle>
             <div>
-                <span>Endereço cadastrado</span>
-                <span>{data.user.address}</span>
+                <p>Endereço cadastrado</p>
+                <p>{data.user.address}</p>
             </div>
-            <img onClick={() => MyRoutes.goToEditAddressPage(navigate)} src={icon_edit} alt="Icone de edição"></img>
+            <img onClick={() => MyRoutes.goToEditAddressPage(navigate)} src={icon_edit} alt="Icone de edição"/>
         </AdressStyle>
         
 
@@ -59,7 +60,7 @@ const ProfilePage = () => {
             <>
                 {isLoading && <Loading/>}
                 {!isLoading && data && Profile}
-                {!isLoading && !data && error}
+                {!isLoading && !data && <p>{error}</p>}
             </>
             <>
                 {isLoading && <Loading/>}
@@ -75,5 +76,3 @@ const ProfilePage = () => {
         </ProfilePageStyle>
     )
 }
-
-export default ProfilePage;

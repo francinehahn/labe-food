@@ -15,7 +15,7 @@ import { BASE_URL, validateStreet, validateNumber, validateComplement, validateN
 import { goToFeedPage } from "../../routes/coordinator"
 
 
-function AddAddressPage() {
+export function AddAddressPage() {
     const navigate = useNavigate()
 
     let color
@@ -90,5 +90,3 @@ function AddAddressPage() {
         </>
     )
 }
-
-export default AddAddressPage;

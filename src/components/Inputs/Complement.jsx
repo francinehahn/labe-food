@@ -1,7 +1,8 @@
+import React from "react"
 import { InputStyle } from "./styled"
 
-export const Complement = ({ value, onChange, color }) => {
-      
+
+export function Complement ({ value, onChange, color }) {      
     return (
         <InputStyle color={color}>
             <label>Complemento</label>

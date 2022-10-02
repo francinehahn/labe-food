@@ -10,11 +10,11 @@ import axios from "axios"
 import { BASE_URL, validateCPF, validateEmail, validateName } from "../../constants/constants"
 import * as MyRoutes from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom"
-import useProtectedPage from "../../hooks/useProtectedPage"
-import useRequestData from "../../hooks/useRequestData"
+import {useProtectedPage} from "../../hooks/useProtectedPage"
+import {useRequestData} from "../../hooks/useRequestData"
 
 
-function EditNamePage() {
+export function EditNamePage() {
     
     useProtectedPage()
     
@@ -82,5 +82,3 @@ function EditNamePage() {
         </>
     )
 }
-
-export default EditNamePage;

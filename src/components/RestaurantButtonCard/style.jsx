@@ -5,7 +5,7 @@ export const RestaurantButtonCardStyle = styled.button`
     flex-direction: column;
     background-color: white;
     width: 88vw;
-    height: 200px;
+    height: 220px;
     border-radius: 8px;
     border: solid 1px var(--greyish);
     text-align: start;
@@ -13,7 +13,7 @@ export const RestaurantButtonCardStyle = styled.button`
     margin-bottom: 10px;
     img {
         width: 100%;
-        height: 135px;
+        height: 150px;
         border-radius: 8px 8px 0 0;
     }
     section {

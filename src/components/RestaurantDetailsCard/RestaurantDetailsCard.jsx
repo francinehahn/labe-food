@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react"
-import GlobalContext from "../../context/GlobalContext"
-import SelectUnits from "../SelectUnits/SelectUnits"
-import {ButtonAdd, ButtonRemove, ContainerProductsRestaurant} from "./styled"
+import {GlobalContext} from "../../context/GlobalContext"
+import {SelectUnits} from "../SelectUnits/SelectUnits"
+import {ContainerProductsRestaurant, Button} from "./style"
 
 
-function RestaurantDetailsCard({product, handleAddProduct, handleRemoveProduct}) {
+export function RestaurantDetailsCard({product, handleAddProduct, handleRemoveProduct}) {
   const {arrayProducts} = useContext(GlobalContext)
   const { photoUrl, name, description, price } = product
   const [showUnits, setShowUnits] = useState(false)
@@ -51,24 +51,23 @@ function RestaurantDetailsCard({product, handleAddProduct, handleRemoveProduct})
         <img src={photoUrl} alt="Imagem do restaurante"/>
         
         <section>
-          {visibleAmount(product) && <p>{quantityProduct(product)}</p>}
-          <h4>{name}</h4>
-          
-          <span>{description}</span>
-          
           <div>
-            <span>{price.toLocaleString('pt-BR', {style:'currency',currency:'BRL'})}</span>
+            <h4>{name}</h4>
+            {visibleAmount(product) && <span>{quantityProduct(product)}</span>}
           </div>
 
-          {visibleAmount(product) ?
-            <ButtonRemove onClick={() => handleRemove(product)}>remover</ButtonRemove>
-            :
-            <ButtonAdd onClick={() => handleAdd(product)}>adicionar</ButtonAdd>
-          }
+          <p>{description}</p>
+
+          <div>
+            <p>{price.toLocaleString('pt-BR', {style:'currency',currency:'BRL'})}</p>
+            {visibleAmount(product) ?
+              <Button color={'#e02020'} onClick={() => handleRemove(product)}>remover</Button>
+              :
+              <Button color={'#5cb646'} onClick={() => handleAdd(product)}>adicionar</Button>
+            }
+          </div>
         </section>
       </ContainerProductsRestaurant>
     </>
   )
 }
-
-export default RestaurantDetailsCard

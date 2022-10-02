@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState } from "react"
 
-export const useForm = (initialState) => {
+export function useForm(initialState) {
     const [form, setForm] = useState(initialState)
 
     const onChange = (e) => {

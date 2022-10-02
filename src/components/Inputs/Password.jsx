@@ -1,10 +1,10 @@
+import React, { useState } from "react"
 import { InputPassword, InputStyle } from "./styled"
-import { useState } from "react"
-import password1 from '../../images/password1.png';
-import password2 from '../../images/password2.png';
+import password1 from '../../images/password1.png'
+import password2 from '../../images/password2.png'
 
-export const Password = ( { label, name, placeholder, value, onChange, color, isValid, errorMessage} ) => {
 
+export function Password ( { label, name, placeholder, value, onChange, color, isValid, errorMessage} ) {
     const [showPassword, setShowPassword] = useState(false)
     const clickShowPassword = () => setShowPassword(!showPassword)
 
@@ -26,9 +26,7 @@ export const Password = ( { label, name, placeholder, value, onChange, color, is
             </div>
         </InputPassword>
 
-        {isValid ? undefined : 
-            <p>{errorMessage}</p>
-        }
+        {isValid ? undefined : <p>{errorMessage}</p>}
         </>
     )
 }

@@ -1,14 +1,13 @@
 import React from "react"
 import { StyleCardHistory } from "./style"
 import { BASE_URL } from "../../constants/constants"
-import useRequestData from "../../hooks/useRequestData"
+import {useRequestData} from "../../hooks/useRequestData"
 
 
 export function OrderHistoryCard() {
 
   const [data, error, isLoading] = useRequestData(`${BASE_URL}/orders/history`, localStorage.getItem("token"))
 
-  
   const ListHistory = data && data.orders.map((item, index) => {
     let subtotal = item.totalPrice.toFixed(2).toString().replace(".", ",")
 

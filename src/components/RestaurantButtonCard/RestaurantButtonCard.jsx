@@ -1,16 +1,16 @@
-import { RestaurantButtonCardStyle } from "./styled";
-import { goToRestaurantPage } from "../../routes/coordinator";
-import { useNavigate } from "react-router-dom";
+import { RestaurantButtonCardStyle } from "./style"
+import { goToRestaurantPage } from "../../routes/coordinator"
+import { useNavigate } from "react-router-dom"
 
 
-const RestaurantButtonCard = ({restaurant}) => {
+export function RestaurantButtonCard({restaurant}) {
 
     const navigate = useNavigate()
 
     return (
 
         <RestaurantButtonCardStyle onClick={()=>{goToRestaurantPage(navigate, restaurant.id)}}>
-            <img src={restaurant.logoUrl} alt="Logo do Restaurante"></img>
+            <img src={restaurant.logoUrl} alt="Logo do Restaurante"/>
                 <section>
                     <p>{restaurant.name}</p>
                     <div>
@@ -21,5 +21,3 @@ const RestaurantButtonCard = ({restaurant}) => {
         </RestaurantButtonCardStyle>
     )
 }
-
-export default RestaurantButtonCard;

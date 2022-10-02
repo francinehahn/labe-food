@@ -1,7 +1,8 @@
+import React from "react"
 import { InputStyle } from "./styled"
 
-export const Neighbourhood = ({ value, onChange, color }) => {
 
+export function Neighbourhood ({ value, onChange, color }) {
     return (
         <InputStyle color={color}>
             <label>Bairro*</label>

@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
-import GlobalContext from "../../context/GlobalContext";
+import {GlobalContext} from "../../context/GlobalContext";
 import {Container} from './style'
+
 
 export function CartCard({img, name, units, description, price}) {
     const products = JSON.parse(localStorage.getItem("ProductCart"))

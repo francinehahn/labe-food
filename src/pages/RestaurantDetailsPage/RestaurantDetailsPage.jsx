@@ -1,30 +1,29 @@
 import React, { useContext, useEffect } from "react"
 import { Header } from "../../components/Header/Header"
-import RestaurantDetailsCard from "../../components/RestaurantDetailsCard/RestaurantDetailsCard"
-import {
-  ContainerDetailsRestaurants,
-  ContainerImg,
-  DivDetailsRestaurants,
-  DivShipping,
-  SpanDetailsRestaurants,
-} from "./style"
+import {RestaurantDetailsCard} from "../../components/RestaurantDetailsCard/RestaurantDetailsCard"
+import {ContainerDetailsRestaurants, Image} from "./style"
 import { BASE_URL } from "../../constants/constants"
-import useRequestData from "../../hooks/useRequestData"
+import {useRequestData} from "../../hooks/useRequestData"
 import { useParams } from "react-router-dom"
 import { Loading } from "../../components/Loading/Loading"
-import GlobalContext from "../../context/GlobalContext"
-import useProtectedPage from "../../hooks/useProtectedPage"
+import {GlobalContext} from "../../context/GlobalContext"
+import {useProtectedPage} from "../../hooks/useProtectedPage"
 
-function RestaurantDetailsPage() {
+export function RestaurantDetailsPage() {
 
   useProtectedPage()
 
   const { restauranteId } = useParams()
   const {arrayProducts, setArrayProducts} = useContext(GlobalContext)
-  const [data, error, isLoading] = useRequestData(
-    `${BASE_URL}/restaurants/${restauranteId}`, localStorage.getItem("token")
-  )
+  const [data, error, isLoading] = useRequestData(`${BASE_URL}/restaurants/${restauranteId}`, localStorage.getItem("token"))
   
+  useEffect(() => {
+    let store = JSON.parse(localStorage.getItem("ProductCart"));
+    {
+      store && setArrayProducts(store)
+    }
+  }, [])
+
   const handleAddProduct = (product, quantity) => {
     const newCart = [...arrayProducts]
     newCart.push({ ...product, quantity: quantity, restaurantId: restauranteId, restaurant: data.restaurant.name, address: data.restaurant.address, time: data.restaurant.deliveryTime, shipping: data.restaurant.shipping });
@@ -35,17 +34,10 @@ function RestaurantDetailsPage() {
     const indexProduct = arrayProducts.findIndex(
       (item) => item.id === product.id
     )
-    const newCard = [...arrayProducts];
-    newCard.splice(indexProduct, 1);
-    setArrayProducts(newCard);
+    const newCard = [...arrayProducts]
+    newCard.splice(indexProduct, 1)
+    setArrayProducts(newCard)
   }
-
-  useEffect(() => {
-    let store = JSON.parse(localStorage.getItem("ProductCart"));
-    {
-      store && setArrayProducts(store);
-    }
-  }, [])
 
   let categories = []
   if (data) {
@@ -88,43 +80,30 @@ function RestaurantDetailsPage() {
 
   return (
     <>
-      <Header showArrow={"true"} showTitle={"true"} title={"Restaurante"} />
+      <Header showArrow={"true"} showTitle={"true"} title={"Restaurante"}/>
       {isLoading && <Loading />}
+      
       {data && (
         <ContainerDetailsRestaurants>
-          <ContainerImg>
-            <img
-              className="imageProduct"
-              src={data.restaurant.logoUrl}
-              alt="Logo Restaurante"
-            />
-          </ContainerImg>
-          <DivDetailsRestaurants>
+          <Image src={data.restaurant.logoUrl} alt="Logo Restaurante"/>
+         
+          <div>
             <h4>{data.restaurant.name}</h4>
-            <SpanDetailsRestaurants>
-              {data.restaurant.category}
-            </SpanDetailsRestaurants>
-            <DivShipping>
-              <SpanDetailsRestaurants>
-                {data.restaurant.deliveryTime} min
-              </SpanDetailsRestaurants>
-              <SpanDetailsRestaurants>
-                Frete{" "}
-                {data.restaurant.shipping.toLocaleString("pt-BR", {
-                  style: "currency",
-                  currency: "BRL",
-                })}
-              </SpanDetailsRestaurants>
-            </DivShipping>
-            <SpanDetailsRestaurants>
-              {data.restaurant.address}
-            </SpanDetailsRestaurants>
+            <h6>{data.restaurant.category}</h6>
+            <p>{data.restaurant.deliveryTime} min</p>
+            <p>
+              Frete{" "}
+              {data.restaurant.shipping.toLocaleString("pt-BR", {
+                style: "currency",
+                currency: "BRL",
+              })}
+            </p>
+            <p>{data.restaurant.address}</p>
+            
             {data && renderData()}
-            </DivDetailsRestaurants>
+          </div>
         </ContainerDetailsRestaurants>
       )}
     </>
-  );
-};
-
-export default RestaurantDetailsPage
+  )
+}

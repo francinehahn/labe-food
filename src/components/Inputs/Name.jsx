@@ -1,6 +1,6 @@
 import { InputStyle } from "./styled"
 
-export const Name = ({ value, onChange, color, isValid }) => {
+export function Name ({ value, onChange, color, isValid }) {
 
     return (
         <InputStyle color={color}>

@@ -1,9 +1,9 @@
 import React from "react"
-import { Container } from "./styled"
+import { Container } from "./style"
 import { useForm } from "../../hooks/useForm"
 
 
-function SelectUnits ({setShowUnits, handleAddProduct, product, id = "modal"}) {
+export function SelectUnits ({setShowUnits, handleAddProduct, product, id = "modal"}) {
   const units = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   
   const [form, onChange] = useForm({
@@ -37,5 +37,3 @@ function SelectUnits ({setShowUnits, handleAddProduct, product, id = "modal"}) {
     </Container>
   )
 }
-
-export default SelectUnits

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import GlobalContext from "../context/GlobalContext"
+import {GlobalContext} from "./GlobalContext"
 
-const GlobalState = ({children}) => {
+export function GlobalState({children}) {
 
     const [reload, setReload] = useState(false);
     const [arrayProducts, setArrayProducts] = useState([]);
@@ -12,5 +12,3 @@ const GlobalState = ({children}) => {
         </GlobalContext.Provider>
     )
 }
-
-export default GlobalState;

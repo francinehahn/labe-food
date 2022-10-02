@@ -1,16 +1,16 @@
-import React from "react";
-import { Header } from "../../components/Header/Header";
+import React from "react"
+import { Header } from "../../components/Header/Header"
 import { SearchDiv, SearchPageStyle } from "./style"
 import search from '../../images/search.png'
-import useRequestData from "../../hooks/useRequestData";
-import { BASE_URL } from "../../constants/constants";
+import {useRequestData} from "../../hooks/useRequestData"
+import { BASE_URL } from "../../constants/constants"
 import { useForm } from "../../hooks/useForm"
-import RestaurantButtonCard from "../../components/RestaurantButtonCard/RestaurantButtonCard";
-import { Loading } from "../../components/Loading/Loading";
-import useProtectedPage from "../../hooks/useProtectedPage";
+import {RestaurantButtonCard} from "../../components/RestaurantButtonCard/RestaurantButtonCard"
+import { Loading } from "../../components/Loading/Loading"
+import {useProtectedPage} from "../../hooks/useProtectedPage"
 
 
-function SearchPage() {
+export function SearchPage() {
 
     useProtectedPage()
 
@@ -42,5 +42,3 @@ function SearchPage() {
         </SearchPageStyle>
     )
 }
-
-export default SearchPage
