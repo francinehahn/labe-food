@@ -16,15 +16,8 @@ import { goToFeedPage } from "../../routes/coordinator"
 
 
 export function AddAddressPage() {
+
     const navigate = useNavigate()
-
-    let color
-    if(isValid) {
-        color = '#B8B8B8'
-    } else {
-        color = '#e02020'
-    }
-
     const token = localStorage.getItem("token")
 
     const [form, onChange] = useForm({
@@ -43,10 +36,16 @@ export function AddAddressPage() {
     const [isNeighbourhoodValid, setIsNeighbourhoodValid] = useState(true)
     const [isCityValid, setIsCityValid] = useState(true)
     const [isStateValid, setIsStateValid] = useState(true)
-    
     const [errorText, setErrorText] = useState(undefined)
 
-    const EditAddress = () => {
+    let color
+    if(isValid) {
+        color = '#B8B8B8'
+    } else {
+        color = '#e02020'
+    }
+
+    const editAddress = () => {
         axios.put(`${BASE_URL}/address`, form, { headers: {
             "auth": token
         }})
@@ -69,12 +68,13 @@ export function AddAddressPage() {
         setIsCityValid(validateCity(form.city))
         setIsStateValid(validateState(form.state))
         setIsComplementValid(validateComplement(form.complement))
-        isStateValid && isNumberValid && isComplementValid && isNeighbourhoodValid && isCityValid && isStateValid && EditAddress()
+        isStateValid && isNumberValid && isComplementValid && isNeighbourhoodValid && isCityValid && isStateValid && editAddress()
     }
 
     return(
         <>
         <Header showArrow={'true'} showTitle={'false'}/>
+
         <AddressPageStyle>
             <p>Meu endereço</p>
             <form onSubmit={onSubmit}>

@@ -1,73 +1,70 @@
-# PROJETO LABEFOOD
+# LABEFOOD
 
 ![4EATS](./src/images/logo.png)
 
-# Índice
+# Content index
 
-* [Descrição do Projeto](#descrição-do-projeto)
-* [Fluxo do App](#fluxo-do-app)
-* [Funcionalidades do projeto](#funcionalidades-do-projeto)
-* [Acesso ao App](#acesso-ao-app)
-* [Tecnologias utilizadas](#tecnologias-utilizadas)
-* [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras-do-projeto)
-* [Conclusão](#conclusão)
-
-
-# Descrição do Projeto
-
-- App mobile destinado a venda de fast food, seguindo design pré-definido via Zeplin e com integração com API.
-
-# Fluxo do App
-![Flow](https://user-images.githubusercontent.com/102331990/193159589-91a7484d-b80b-40aa-ab8e-d215712269b3.jpg)
+* [Project description](#project-description)
+* [Application flowchart](#application-flowchart)
+* [Project functionalities](#project-functionalities)
+* [Link to access the app](#link-to-access-the-app)
+* [Technologies used](#technologies-used)
+* [Who made this project](#who-made-this-project)
+* [Conclusion]#conclusion)
 
 
-# Documentação da API
+# Project description
+This project is a food delivery mobile app that was developed following a pre-defined design on Zeplin. For a better experience, we suggest you to access the project on your mobile or on your desktop using the chrome DevTools.
+
+# Application flowchart
+![Flowchart](https://user-images.githubusercontent.com/102331990/193159589-91a7484d-b80b-40aa-ab8e-d215712269b3.jpg)
+
+# API documentation
 https://documenter.getpostman.com/view/7549981/SWTEdGtT
 
-
-# Funcionalidades do projeto
-- `Login/Cadastro:`
-    - Cadastro de usuário e login
-    - Validação das informações inseridas
-- `Busca e Seleção de Restaurantes:`
-    - Visualizar lista com todos os restaurantes
-    - Busca um restaurante por nome
-    - Filtra os restaurantes por categoria
-    - Visualizar a tela com seu cardápio
-- `Cardápio do Restaurante:`
-    - Visualizar as informações do restaurante (foto, nome, tipo, tempo de entrega, frete, endereço)
-    - Visualizar os pratos do restaurante, divididos em categorias
-    - Adicionar pratos no carrinho e selecionar a quantidade de cada prato
-    - Remover itens do carrinho
-- `Carrinho e Finalizar Compra:`
-    - Visualizar a lista de itens que adicionou ao carrinho
-    - Visualizar o preço total da compra
-    - Selecionar uma forma de pagamento
-    - Banner de "Pedido em Andamento" com os dados do pedido. Fica ativo durante o tempo de entrega do restaurante
-- `Perfil, Editar Perfil e Histórico de Pedidos:`
-    - Visualizar seus dados pessoais e endereço
-    - Editar seus dados pessoais e endereço
-    - Validação das informações inseridas
-    - Visualizar o seu histórico de pedidos concluídos
-
-
-# Acesso ao App
-**https://**
+# Project functionalities
+- `Login/Signup:`
+    - Login
+    - User registration
+    - Input validation
+- `Search and selection of restaurants:`
+    - To visualize the list with all the available restaurants
+    - To search a restaurant by name
+    - To filter the restaurants by category
+    - To visualize the menu of each restaurant
+- `Restaurant menu:`
+    - To Visualize the restarant's information (photo, name, category, delivery time, shipping price, address)
+    - To visualize the dishes by category
+    - To add dishes to the cart and select the units of each one
+    - To remove items from the cart
+- `Cart and order:`
+    - To visualize the list of items added to the cart
+    - To visualize the total price of the order
+    - To select the payment method
+    - To vizualize an "order in progress" banner containing the order information; This banner is maintained on the screen during the delivery time of each restaurant
+- `Profile and order history:`
+    - To visualize the personal information of the user
+    - To edit the personal information
+    - Input validation
+    - To visualize the order history
 
 
-# Tecnologias utilizadas
-- **JAVASCRIPT**    
-- **REACT**
-- **ESTADOS GLOBAIS**
+# Link to access the project
+[www.labefood.com]()
 
-# Pessoas Desenvolvedoras do Projeto
+
+# Technologies used
+- JavaScript    
+- HTML
+- Styled-components
+- React
+
+
+# Who made this project?
 | [<img src="https://avatars.githubusercontent.com/u/102267713?v=4" width=115><br><sub>Francine Hahn</sub>](https://github.com/francinehahn) |  [<img src="https://avatars.githubusercontent.com/u/102439115?v=4" width=115><br><sub>Giovana Vieira</sub>](https://github.com/gioivieira) |  [<img src="https://avatars.githubusercontent.com/u/102297204?v=4" width=115><br><sub>Maria Fernandez</sub>](https://github.com/mariafmf) | 
 | :---: | :---: | :---: |
 | [<img src="https://avatars.githubusercontent.com/u/74737156?v=4" width=115><br><sub>Byron Smith</sub>](https://github.com/byron-smith-nobrega) |  [<img src="https://avatars.githubusercontent.com/u/102331990?v=4" width=115><br><sub>Samuel Garcia</sub>](https://github.com/Samuca010) | 
 
 
-
-# Conclusão
-
-Projeto de conclusão do módulo Front End, desenvolvido em grupo, envolvendo trabalho colaborativo, organização de processos ágeis e aplicação de várias metodologias envolvendo
-React, integração com API, Rotas, LocalStorage, Styled-Components entre outras.
+# Conclusion
+This was the final project of the front-end module of Labenu's course. It was developed by 5 students with the intent to practice collaborative work, organization of agile processes and application of various methodologies such as React, API integration, Routes, LocalStorage, and Styled-Components.

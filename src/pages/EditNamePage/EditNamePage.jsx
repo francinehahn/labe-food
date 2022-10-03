@@ -16,14 +16,7 @@ import {useRequestData} from "../../hooks/useRequestData"
 
 export function EditNamePage() {
     
-    useProtectedPage()
-    
-    let color
-    if(isValid) {
-        color = '#B8B8B8'
-    } else {
-        color = '#e02020'
-    }    
+    useProtectedPage()   
 
     const navigate = useNavigate()
     const [data] = useRequestData(`${BASE_URL}/profile`)
@@ -43,6 +36,13 @@ export function EditNamePage() {
     const [isCPFValid, setIsCPFValid] = useState(true)
     const [isNameValid, setIsNameValid] = useState(true)
     const [errorText, setErrorText] = useState(undefined)
+
+    let color
+    if(isValid) {
+        color = '#B8B8B8'
+    } else {
+        color = '#e02020'
+    }
 
     const EditProfile = () => {
         axios.put(`${BASE_URL}/profile`, form, {

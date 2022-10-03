@@ -1,6 +1,6 @@
 import React from "react"
 import { Header } from "../../components/Header/Header"
-import icon_edit from "../../images/edit.png"
+import {ImPencil} from 'react-icons/im'
 import { ProfileStyle, AdressStyle, StyleHistory, ProfilePageStyle} from "./style"
 import { OrderHistoryCard } from "../../components/OrderHistoryCard/OrderHistoryCard"
 import { Footer } from "../../components/Footer/Footer"
@@ -41,7 +41,7 @@ export function ProfilePage() {
                 <p>{data.user.email}</p>
                 <p>{data.user.cpf}</p>
             </div>
-            <img onClick={() => MyRoutes.goToEditNamePage(navigate)} src={icon_edit} alt="Icone de edição"/>
+            <ImPencil onClick={() => MyRoutes.goToEditNamePage(navigate)}/>
         </ProfileStyle>
 
      const Address = data &&
@@ -50,7 +50,7 @@ export function ProfilePage() {
                 <p>Endereço cadastrado</p>
                 <p>{data.user.address}</p>
             </div>
-            <img onClick={() => MyRoutes.goToEditAddressPage(navigate)} src={icon_edit} alt="Icone de edição"/>
+            <ImPencil onClick={() => MyRoutes.goToEditAddressPage(navigate)}/>
         </AdressStyle>
         
 

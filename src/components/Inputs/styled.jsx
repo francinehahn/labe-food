@@ -35,32 +35,33 @@ export const InputStyle = styled.div`
 
 `
 
-export const InputPassword = styled(InputStyle)`
+export const InputPassword = styled(InputStyle) `
     div {
         display: flex;
         flex-direction: row;
         align-items: center;
-        background-color: white;
+        background-color: transparent;
     }
 
     button {
-        background-color: white;
+        background-color: transparent;
         border: none;
         margin: 0 0 0 -45px;
         width: 24px;
         height: 24px;
 
-        img {
+        svg {
             width: 24px;
             height: 24px;
             margin: 5px 0 0 8px;
             object-fit: contain;
+            color: var(--greyish);
         }
     }
     
 `
 
-export const ErrorText = styled.p`
+export const ErrorText = styled.p `
         margin: 0 32px;
         letter-spacing: -0.29px;
         font-size: 12px;

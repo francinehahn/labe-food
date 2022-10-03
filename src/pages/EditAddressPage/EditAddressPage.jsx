@@ -18,13 +18,6 @@ import { goToProfilePage } from "../../routes/coordinator"
 export function EditAddressPage() {
     const navigate = useNavigate()
 
-    let color
-    if(isValid) {
-        color = '#B8B8B8'
-    } else {
-        color = '#e02020'
-    }
-
     const [form, onChange] = useForm({
         street: JSON.parse(localStorage.getItem("street")),
         number: JSON.parse(localStorage.getItem("number")),
@@ -41,8 +34,14 @@ export function EditAddressPage() {
     const [isNeighbourhoodValid, setIsNeighbourhoodValid] = useState(true)
     const [isCityValid, setIsCityValid] = useState(true)
     const [isStateValid, setIsStateValid] = useState(true)
-
     const [errorText, setErrorText] = useState(undefined)
+
+    let color
+    if(isValid) {
+        color = '#B8B8B8'
+    } else {
+        color = '#e02020'
+    }
 
     const EditAddress = () => {
         axios.put(`${BASE_URL}/address`, form, {

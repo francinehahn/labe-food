@@ -81,8 +81,8 @@ export function CartPage() {
             localStorage.setItem("price", response.data.order.totalPrice)
             localStorage.setItem("ProductCart", JSON.stringify([]))
             setReload(!reload)
+            alert('Pedido realizado com sucesso!')
             finishOrder()
-            goToFeedPage(navigate)
         }).catch((err) => {
             if (err.message === 'Request failed with status code 409') {
                 alert("Você já tem um pedido em andamento. Aguarde a finalização deste para concluir uma nova compra.")
@@ -95,6 +95,7 @@ export function CartPage() {
     return(
         <>
         <Header showArrow={'false'} showTitle={'true'} title={'Meu carrinho'}/>
+
         <Container>
             <address>
                 <p>Endereço de entrega</p>

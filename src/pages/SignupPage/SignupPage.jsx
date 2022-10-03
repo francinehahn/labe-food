@@ -19,13 +19,6 @@ export function SignupPage() {
 
     const navigate = useNavigate()
 
-    let color
-    if(isValid) {
-        color = '#B8B8B8'
-    } else {
-        color = '#e02020'
-    }
-
     const [form, onChange] = useForm({
         name: "",
         email: "",
@@ -42,7 +35,18 @@ export function SignupPage() {
     const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(true)
     const [errorText, setErrorText] = useState(undefined)
 
-    const SignUp = () => {
+    let color
+    if(isValid) {
+        color = '#B8B8B8'
+    } else {
+        color = '#e02020'
+    }
+
+    useEffect(() => {
+        form.password === confirmPassword? setIsConfirmPasswordValid(true) : setIsConfirmPasswordValid(false)
+    }, [confirmPassword, form.password])
+
+    const signUp = () => {
         axios.post(`${BASE_URL}/signup`, form)
         .then((response) => {
             localStorage.setItem("token", response.data.token)
@@ -55,24 +59,16 @@ export function SignupPage() {
         })
     }
 
-    useEffect(() => {
-        if (form.password === confirmPassword) {
-            setIsConfirmPasswordValid(true)
-        } else {
-            setIsConfirmPasswordValid(false)
-        }
-    }, [confirmPassword, form.password])
-
     const onSubmit = (e) => {
         e.preventDefault();
         setIsEmailValid(validateEmail(form.email))
         setIsPasswordValid(validatePassword(form.password))
         setIsCPFValid(validateCPF(form.cpf))
         setIsNameValid(validateName(form.name))
-        isEmailValid && isPasswordValid && isCPFValid && isNameValid && isConfirmPasswordValid && SignUp()  
+        isEmailValid && isPasswordValid && isCPFValid && isNameValid && isConfirmPasswordValid && signUp()  
     }
     
-    return(
+    return (
         <>
         <Header showArrow={'true'} showTitle={'false'} title={'Cadastro'}/>
         <SignupPageStyle>

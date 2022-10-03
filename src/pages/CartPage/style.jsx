@@ -29,7 +29,7 @@ export const Container = styled.section `
 
 export const Paragraph = styled.p `
     text-align: center;
-    padding: 10px 0;
+    padding: 20px 0;
 `
 
 export const Payment = styled.section `

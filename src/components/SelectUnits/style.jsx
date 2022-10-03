@@ -24,6 +24,9 @@ export const Container = styled.section `
     gap: 4vh;
     background-color: white;
     padding: 5vh 5vw;
+    p {
+      color: black;
+    }
     form {
       display: flex;
       flex-direction: column;

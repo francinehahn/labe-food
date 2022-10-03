@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 import {Header} from '../../components/Header/Header'
 import {ButtonSearch, FeedPageStyle, FiltersContainer, CardsContainer} from './style'
-import search from '../../images/search.png'
+import {HiOutlineSearch} from 'react-icons/hi'
 import {Loading} from '../../components/Loading/Loading'
-import { goToSearchPage } from "../../routes/coordinator";
-import { useNavigate } from "react-router-dom";
+import { goToSearchPage } from "../../routes/coordinator"
+import { useNavigate } from "react-router-dom"
 import { Footer } from "../../components/Footer/Footer"
 import {RestaurantButtonCard} from "../../components/RestaurantButtonCard/RestaurantButtonCard"
-import { Order } from "../../components/Order/Order";
-import {useProtectedPage} from "../../hooks/useProtectedPage";
-import {useRequestData} from "../../hooks/useRequestData";
-import { BASE_URL } from "../../constants/constants";
+import { Order } from "../../components/Order/Order"
+import {useProtectedPage} from "../../hooks/useProtectedPage"
+import {useRequestData} from "../../hooks/useRequestData"
+import { BASE_URL } from "../../constants/constants"
+
 
 export function FeedPage() {
 
@@ -34,10 +35,9 @@ export function FeedPage() {
 
             <Header showArrow={'false'} showTitle={'true'} title={'FutureEats'}/>
 
-            <ButtonSearch onClick={()=>{goToSearchPage(navigate)}}><img src={search} alt={'Ícone de um lupa'}/><p>Restaurante</p></ButtonSearch>
+            <ButtonSearch onClick={()=>{goToSearchPage(navigate)}}><HiOutlineSearch/><p>Restaurante</p></ButtonSearch>
 
             <FiltersContainer>
-                
                 <button onClick={()=>{setCategory("Hamburguer")}}>Burger</button>
                 <button onClick={()=>{setCategory("Asiática")}}>Asiática</button>
                 <button onClick={()=>{setCategory("Árabe")}}>Árabe</button>
@@ -47,17 +47,14 @@ export function FeedPage() {
                 <button onClick={()=>{setCategory("Baiana")}}>Baiana</button>
                 <button onClick={()=>{setCategory("Petiscos")}}>Petiscos</button>
                 <button onClick={()=>{setCategory("Mexicana")}}>Mexicana</button>               
-
             </FiltersContainer>   
 
             <CardsContainer>
-                
                 {isLoadingRestaurants && <Loading/>}
 
                 {!isLoadingRestaurants&&dataRestaurants ? restaurantsList : <p>{errorRestaurants}</p>}
 
                 {localStorage.getItem("orderInProgress")==="true" && <Order/>}
-                
             </CardsContainer>               
 
             <Footer color1={'#5CB646'} color2={'#B8B8B8'} color3={'#B8B8B8'}/>                  

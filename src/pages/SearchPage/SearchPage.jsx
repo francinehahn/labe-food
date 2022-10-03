@@ -1,7 +1,7 @@
 import React from "react"
 import { Header } from "../../components/Header/Header"
-import { SearchDiv, SearchPageStyle } from "./style"
-import search from '../../images/search.png'
+import { SearchPageStyle } from "./style"
+import {HiOutlineSearch} from 'react-icons/hi'
 import {useRequestData} from "../../hooks/useRequestData"
 import { BASE_URL } from "../../constants/constants"
 import { useForm } from "../../hooks/useForm"
@@ -28,10 +28,10 @@ export function SearchPage() {
 
             <Header showArrow={'true'} showTitle={'true'} title={'Busca'}/>
 
-            <SearchDiv> 
-                <img src={search}/> 
+            <div> 
+                <HiOutlineSearch/>
                 <input type="text" name="restaurant" value={form.restaurant} onChange={onChange} placeholder="Restaurante"/> 
-            </SearchDiv>            
+            </div>            
 
             {isLoadingRestaurants && <Loading/>}
 

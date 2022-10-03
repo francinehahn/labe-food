@@ -29,10 +29,11 @@ export const ButtonSearch = styled.button`
     margin-top: 10px;
     margin-bottom: 15px;
     font-size: 16px;
-    img {
+    svg {
         width: 24px;
         height: 24px;
-        margin-right: 10px;        
+        margin-right: 10px;
+        color: var(--greyish);
     }
     p {
         color: var(--greyish);

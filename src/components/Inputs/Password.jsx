@@ -1,7 +1,7 @@
 import React, { useState } from "react"
-import { InputPassword, InputStyle } from "./styled"
-import password1 from '../../images/password1.png'
-import password2 from '../../images/password2.png'
+import { InputPassword } from "./styled"
+import {BsFillEyeSlashFill} from 'react-icons/bs'
+import {IoEyeSharp} from 'react-icons/all'
 
 
 export function Password ( { label, name, placeholder, value, onChange, color, isValid, errorMessage} ) {
@@ -21,7 +21,7 @@ export function Password ( { label, name, placeholder, value, onChange, color, i
                     type={showPassword ? "text" : "password"} 
                 />
                 <button onClick={clickShowPassword} type="button">
-                    {showPassword ? <img src={password2} alt="Mostrar senha"/> : <img src={password1} alt="Esconder senha"/>}
+                    {showPassword ? <IoEyeSharp/> : <BsFillEyeSlashFill/>}
                 </button>
             </div>
         </InputPassword>

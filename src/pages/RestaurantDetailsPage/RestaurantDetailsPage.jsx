@@ -9,6 +9,7 @@ import { Loading } from "../../components/Loading/Loading"
 import {GlobalContext} from "../../context/GlobalContext"
 import {useProtectedPage} from "../../hooks/useProtectedPage"
 
+
 export function RestaurantDetailsPage() {
 
   useProtectedPage()
@@ -16,12 +17,11 @@ export function RestaurantDetailsPage() {
   const { restauranteId } = useParams()
   const {arrayProducts, setArrayProducts} = useContext(GlobalContext)
   const [data, error, isLoading] = useRequestData(`${BASE_URL}/restaurants/${restauranteId}`, localStorage.getItem("token"))
-  
+  let categories = []
+
   useEffect(() => {
-    let store = JSON.parse(localStorage.getItem("ProductCart"));
-    {
-      store && setArrayProducts(store)
-    }
+    let productsInCart = JSON.parse(localStorage.getItem("ProductCart"))
+    {productsInCart && setArrayProducts(productsInCart)}
   }, [])
 
   const handleAddProduct = (product, quantity) => {
@@ -39,40 +39,38 @@ export function RestaurantDetailsPage() {
     setArrayProducts(newCard)
   }
 
-  let categories = []
-  if (data) {
-    let equal
-    for (let i = 0; i < data.restaurant.products.length; i++) {
-      if (i === 0) {
-        categories.push(data.restaurant.products[0].category)
-      } else {
-        for(let c = 0; c < categories.length; c++) {
-          if(data.restaurant.products[i].category !== categories[c]) {
-            equal = false
-          } else {
-            equal = true
-            break
+  const listCategories = () => {
+    if (data) {
+      let equal
+      for (let i = 0; i < data.restaurant.products.length; i++) {
+        if (i === 0) {
+          categories.push(data.restaurant.products[0].category)
+        } else {
+          for(let c = 0; c < categories.length; c++) {
+            if(data.restaurant.products[i].category !== categories[c]) {
+              equal = false
+            } else {
+              equal = true
+              break
+            }
           }
+          !equal && categories.push(data.restaurant.products[i].category)
         }
-        !equal && categories.push(data.restaurant.products[i].category)
       }
     }
   }
 
   const renderData = () => {
+    listCategories()
     let result = []
     for (let i = 0; i < categories.length; i++) {
       let productsByCategory = data.restaurant.products.filter(product => product.category === categories[i])
       
-      result.push(<div key={categories[i]}>
+      result.push(
+      <div key={categories[i]}>
         <h5>{categories[i]}</h5>
         {productsByCategory.map(item => {
-        return <RestaurantDetailsCard
-          key={item.id}
-          product={item}
-          handleAddProduct={handleAddProduct}
-          handleRemoveProduct={handleRemoveProduct}
-        />})}
+        return <RestaurantDetailsCard key={item.id} product={item} handleAddProduct={handleAddProduct} handleRemoveProduct={handleRemoveProduct}/>})}
       </div>)
     }
     return result
@@ -81,7 +79,7 @@ export function RestaurantDetailsPage() {
   return (
     <>
       <Header showArrow={"true"} showTitle={"true"} title={"Restaurante"}/>
-      {isLoading && <Loading />}
+      {isLoading && <Loading/>}
       
       {data && (
         <ContainerDetailsRestaurants>
@@ -100,7 +98,7 @@ export function RestaurantDetailsPage() {
             </p>
             <p>{data.restaurant.address}</p>
             
-            {data && renderData()}
+            {renderData()}
           </div>
         </ContainerDetailsRestaurants>
       )}

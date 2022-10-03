@@ -20,9 +20,9 @@ export const ProfileStyle = styled.div `
       }
     }
   }
-  img {
-    width: 24px;
-    height: 24px;
+  svg {
+    width: 20px;
+    height: 20px;
     margin-top: 20px;
     margin-right: 16px;
   }
@@ -51,9 +51,9 @@ export const AdressStyle = styled.div `
       }
     }
   }
-  img {
-    width: 24px;
-    height: 24px;
+  svg {
+    width: 20px;
+    height: 20px;
   }
 `
 
