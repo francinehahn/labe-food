@@ -8,13 +8,13 @@ export const SearchPageStyle = styled.section `
     div {
         display: flex;
         align-items: center;
+        background-color: white;
+        height: 56px;
         width: 88vw;
-        padding: 15px 48px 15px 16px;
+        padding: 19px 48px 19px 16px;
         border-radius: 2px;
         border: 1px solid var(--greyish);
-        margin-top: 10px;
-        margin-bottom: 20px;
-        font-size: 16px;
+        margin: 10px 0 20px 0;
         svg {
             width: 24px;
             height: 24px;
@@ -22,12 +22,9 @@ export const SearchPageStyle = styled.section `
             color: var(--greyish);
         }
         input {
-            border: 0;
+            border: none;
             font-size: 16px;
-            :focus{
-                box-shadow: 0 0 0 0;
-                outline: 0;
-            }
+            color: var(--greyish);
         }
     }
 `
