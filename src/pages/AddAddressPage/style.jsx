@@ -5,6 +5,7 @@ export const AddressPageStyle = styled.section`
     flex-direction: column;
     padding: 0 0 184px;
     justify-content: center;
+    margin-top: 15px;
     p {
       width: 296px;
       height: 18px;

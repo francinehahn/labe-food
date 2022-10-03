@@ -16,16 +16,16 @@ import { validateEmail, validatePassword } from "../../constants/constants"
 
 export function LoginPage() {
 
+    const navigate = useNavigate()
+
     const [showLogo, setShowLogo] = useState(true)
     const [loading, setLoading] = useState(false)
     const [isValid, setIsValid] = useState(true)
     const [isEmailValid, setIsEmailValid] = useState(true)
     const [isPasswordValid, setIsPasswordValid] = useState(true)
 
-    const navigate = useNavigate()
-
     let color
-    if(isValid) {
+    if(isValid===true) {
         color = '#B8B8B8'
     } else {
         color = '#e02020'
@@ -82,7 +82,7 @@ export function LoginPage() {
 
                 <form onSubmit={onSubmit}>
                     <Email value={form.email} onChange={onChange} name="email" color={color} isValid={isEmailValid}/>
-                    <Password value={form.password} onChange={onChange} name="password" label="Senha*" placeholder="Mínimo 6 caracteres" color="#e02020" isValid={isPasswordValid} errorMessage="A senha deve possuir no mínimo 6 caracteres."/>
+                    <Password value={form.password} onChange={onChange} name="password" label="Senha*" placeholder="Mínimo 6 caracteres" color={color} isValid={isPasswordValid} errorMessage="A senha deve possuir no mínimo 6 caracteres."/>
                     {!isEmailValid && !isPasswordValid && <p> E-mail e/ou senha incorretos. Tente novamente.</p>}
                     {loading? <Button color={'#5cb646'} buttonTitle={<LoadingButtonLogin> </LoadingButtonLogin>} /> : <Button color={'#5cb646'} buttonTitle="Entrar"/>}
                 </form>

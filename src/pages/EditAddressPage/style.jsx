@@ -7,19 +7,16 @@ export const AddressPageStyle = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 0 0 12px;
-    
+    margin-top: 15px;
     img {
         width: 104px;
         height: 58px;
-        margin: 14px 0 16px;
-        object-fit: contain;
     }
     form > p {
         margin: 0 32px;
         letter-spacing: -0.29px;
         font-size: 12px;
-        color: #e02020;
+        color: var(--red);
     }
 `
 

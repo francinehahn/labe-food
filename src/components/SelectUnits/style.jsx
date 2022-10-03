@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Container = styled.section `
   width: 100vw;
   height: 100vh;
-  position: absolute; 
+  position: fixed; 
   top: 0; 
   left: 0;
   z-index: 1000;
@@ -33,7 +33,7 @@ export const Container = styled.section `
       gap: 3vh;
       width: 95%;
       select {
-        height: 4vh;
+        height: 5vh;
         border-radius: 4px;
       }
     }

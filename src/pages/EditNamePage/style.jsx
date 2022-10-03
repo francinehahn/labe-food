@@ -7,8 +7,7 @@ export const EditNameStyle = styled.div`
     justify-content: center;
     width: 100%;
     display: flex;
-    padding: 0 0 12px;
-    
+    margin-top: 15px;
     img {
         width: 104px;
         height: 58px;
@@ -19,6 +18,6 @@ export const EditNameStyle = styled.div`
         margin: 0 32px;
         letter-spacing: -0.29px;
         font-size: 12px;
-        color: #e02020;
+        color: var(--red);
     }
 `

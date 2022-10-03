@@ -16,6 +16,7 @@ import { goToProfilePage } from "../../routes/coordinator"
 
 
 export function EditAddressPage() {
+    
     const navigate = useNavigate()
 
     const [form, onChange] = useForm({

@@ -26,10 +26,10 @@ export const ContainerProductsRestaurant = styled.section`
         }
         span {
           position: absolute;
-          top: 0;
-          right: 0;
+          top: -1px;
+          right: -1px;
           border: 1px solid var(--mid-green);
-          border-radius: 0 5px 0 5px;
+          border-radius: 0 8px 0 9px;
           color: var(--mid-green);
           padding: 8px 12px;
           font-size: 12px;
@@ -55,14 +55,14 @@ export const ContainerProductsRestaurant = styled.section`
 
 export const Button = styled.button `
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   text-align: center;
   margin-left: 65%;
   height: 28%;
   width: 35%;
   border: 1px solid ${props => props.color};
   color: ${props => props.color};
-  border-radius: 5px 0px 8px 0px;
+  border-radius: 8px 0px 8px 0px;
   background: transparent;
   font-size: 12px;
 `
