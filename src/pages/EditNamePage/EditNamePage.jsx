@@ -73,13 +73,11 @@ export function EditNamePage() {
         <>
             <Header showArrow={'true'} showTitle={'true'} title={'Editar'}/>
 
-            <EditNameStyle>
-                <form onSubmit={onSubmit}>
-                    <Name name="name" value={form.name} onChange={onChange} color={color} isValid={isNameValid} />
-                    <Email name="email" value={form.email} onChange={onChange} color={color} isValid={isEmailValid} />
-                    <CPF name="cpf" value={form.cpf} onChange={onChange} color={color} isValid={isCPFValid} />
-                    <Button type="submit" color="#5CB646" buttonTitle="SALVAR" />
-                </form>
+            <EditNameStyle onSubmit={onSubmit}>
+                <Name name="name" value={form.name} onChange={onChange} color={color} isValid={isNameValid} />
+                <Email name="email" value={form.email} onChange={onChange} color={color} isValid={isEmailValid} />
+                <CPF name="cpf" value={form.cpf} onChange={onChange} color={color} isValid={isCPFValid} />
+                <Button type="submit" color="#5CB646" buttonTitle="SALVAR" />
             </EditNameStyle>
         </>
     )

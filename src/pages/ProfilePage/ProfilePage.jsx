@@ -53,7 +53,6 @@ export function ProfilePage() {
             <ImPencil onClick={() => MyRoutes.goToEditAddressPage(navigate)}/>
         </AdressStyle>
         
-
     return (
         <>
             <Header showArrow={'false'} showTitle={'true'} title={"Meu perfil"} />

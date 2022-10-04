@@ -27,7 +27,7 @@ export const ContainerProductsRestaurant = styled.section `
         span {
           position: absolute;
           top: -1px;
-          right: -2px;
+          right: -1px;
           border: 1px solid var(--mid-green);
           border-radius: 0 8px 0 9px;
           color: var(--mid-green);
@@ -56,7 +56,7 @@ export const ContainerProductsRestaurant = styled.section `
 export const Button = styled.button `
   position: absolute;
   bottom: -1px;
-  right: -2px;
+  right: -1px;
   text-align: center;
   height: 28%;
   width: 35%;

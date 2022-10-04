@@ -4,7 +4,7 @@ export const Container = styled.section `
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 85vh;
+    height: 82vh;
     width: 100vw;
     overflow-y: auto;
     overflow-x: hidden;
@@ -36,7 +36,7 @@ export const Payment = styled.section `
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0 20px 80px 20px;
+    margin: 0 20px 10vh 20px;
     span {
         text-align: right;
         margin: 5px 20px 0 0;
