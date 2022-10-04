@@ -17,48 +17,52 @@ export function FeedPage() {
 
     useProtectedPage()
 
-    const [dataRestaurants, errorRestaurants, isLoadingRestaurants] = useRequestData(`${BASE_URL}/restaurants`, localStorage.getItem("token"))
+    const [data, error, isLoading] = useRequestData(`${BASE_URL}/restaurants`, localStorage.getItem("token"))
     const [category, setCategory] = useState("")
 
     const navigate = useNavigate()    
 
-    const restaurantsList = dataRestaurants && dataRestaurants.restaurants.map((restaurant) =>{
-        if(restaurant.category === category){
-        return <RestaurantButtonCard restaurant={restaurant} key={restaurant.id}/>            
-        } else if(category === ""){
-            return <RestaurantButtonCard restaurant={restaurant} key={restaurant.id}/>   
+    const restaurantsList = data && data.restaurants.map((restaurant) => {
+        if(restaurant.category === category || category === "") {
+            return <RestaurantButtonCard restaurant={restaurant} key={restaurant.id}/>            
         }
     })
     
-    return(
+    return (
         <FeedPageStyle>
-
             <Header showArrow={'false'} showTitle={'true'} title={'FutureEats'}/>
 
-            <ButtonSearch onClick={()=>{goToSearchPage(navigate)}}><HiOutlineSearch/><p>Restaurante</p></ButtonSearch>
+            {!isLoading && data && (
+                <>
+                <ButtonSearch onClick={() => goToSearchPage(navigate)}>
+                    <HiOutlineSearch/>
+                    <p>Restaurante</p>
+                </ButtonSearch>
 
-            <FiltersContainer>
-                <button onClick={()=>{setCategory("Hamburguer")}}>Burger</button>
-                <button onClick={()=>{setCategory("Asiática")}}>Asiática</button>
-                <button onClick={()=>{setCategory("Árabe")}}>Árabe</button>
-                <button onClick={()=>{setCategory("Italiana")}}>Italiana</button>
-                <button onClick={()=>{setCategory("Sorvetes")}}>Sorvetes</button>
-                <button onClick={()=>{setCategory("Carnes")}}>Carnes</button>
-                <button onClick={()=>{setCategory("Baiana")}}>Baiana</button>
-                <button onClick={()=>{setCategory("Petiscos")}}>Petiscos</button>
-                <button onClick={()=>{setCategory("Mexicana")}}>Mexicana</button>               
-            </FiltersContainer>   
+                <FiltersContainer>
+                    <button onClick={()=>{setCategory("Hamburguer")}}>Burger</button>
+                    <button onClick={()=>{setCategory("Asiática")}}>Asiática</button>
+                    <button onClick={()=>{setCategory("Árabe")}}>Árabe</button>
+                    <button onClick={()=>{setCategory("Italiana")}}>Italiana</button>
+                    <button onClick={()=>{setCategory("Sorvetes")}}>Sorvetes</button>
+                    <button onClick={()=>{setCategory("Carnes")}}>Carnes</button>
+                    <button onClick={()=>{setCategory("Baiana")}}>Baiana</button>
+                    <button onClick={()=>{setCategory("Petiscos")}}>Petiscos</button>
+                    <button onClick={()=>{setCategory("Mexicana")}}>Mexicana</button>               
+                </FiltersContainer>
 
-            <CardsContainer>
-                {isLoadingRestaurants && <Loading/>}
+                <CardsContainer>
+                    {restaurantsList}
+                    {localStorage.getItem("orderInProgress")==="true" && <Order/>}
+                </CardsContainer>          
 
-                {!isLoadingRestaurants&&dataRestaurants ? restaurantsList : <p>{errorRestaurants}</p>}
-
-                {localStorage.getItem("orderInProgress")==="true" && <Order/>}
-            </CardsContainer>               
+                </>
+            )}
+            
+            {!isLoading && error && <p>{error}</p>}
+            {isLoading && <Loading/>}            
 
             <Footer color1={'#5CB646'} color2={'#B8B8B8'} color3={'#B8B8B8'}/>                  
-
         </FeedPageStyle>
     )
 }

@@ -5,7 +5,10 @@ export const SearchPageStyle = styled.section `
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    div {
+    p {
+        margin-top: 15px;
+    }
+    form {
         display: flex;
         align-items: center;
         background-color: white;
@@ -25,6 +28,9 @@ export const SearchPageStyle = styled.section `
             border: none;
             font-size: 16px;
             color: var(--greyish);
+            :focus {
+                outline: none;
+            }
         }
     }
 `

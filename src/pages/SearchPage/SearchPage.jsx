@@ -14,31 +14,33 @@ export function SearchPage() {
 
     useProtectedPage()
 
-    const [dataRestaurants, errorRestaurants, isLoadingRestaurants] = useRequestData(`${BASE_URL}/restaurants`, localStorage.getItem("token"))
+    const [data, error, isLoading] = useRequestData(`${BASE_URL}/restaurants`, localStorage.getItem("token"))
     const [form, onChange] = useForm({restaurant: ""})
 
-    const filteredRestaurants = dataRestaurants && dataRestaurants.restaurants.map((restaurantSearch) => {
-        if(restaurantSearch.name.toLowerCase().includes(form.restaurant.toLowerCase())){
+    const filteredRestaurants = data && data.restaurants.map((restaurantSearch) => {
+        if(restaurantSearch.name.toLowerCase().includes(form.restaurant.toLowerCase())) {
             return <RestaurantButtonCard restaurant={restaurantSearch} key={restaurantSearch.id}/>
         }
     })   
 
     return (
-        <SearchPageStyle>
+        <>
+        <Header showArrow={'true'} showTitle={'true'} title={'Busca'}/>
+        
+        {isLoading && <Loading/>}
 
-            <Header showArrow={'true'} showTitle={'true'} title={'Busca'}/>
+        {!isLoading && error && <p>{error}</p>}
 
-            <div> 
-                <HiOutlineSearch/>
-                <input type="text" name="restaurant" value={form.restaurant} onChange={onChange} placeholder="Restaurante"/> 
-            </div>            
+        {!isLoading && data && (
+            <SearchPageStyle>
+                <form> 
+                    <HiOutlineSearch/>
+                    <input type="text" name="restaurant" value={form.restaurant} onChange={onChange} placeholder="Restaurante"/> 
+                </form>            
 
-            {isLoadingRestaurants && <Loading/>}
-
-            {!isLoadingRestaurants && errorRestaurants && <p>{errorRestaurants}</p>}
-
-            {!isLoadingRestaurants && dataRestaurants && form.restaurant === "" ? <p>Busque por nome de restaurante</p> : filteredRestaurants}
-
-        </SearchPageStyle>
+                {form.restaurant === "" ? <p>Busque por nome de restaurante</p> : filteredRestaurants}
+            </SearchPageStyle>
+        )}
+        </>
     )
 }

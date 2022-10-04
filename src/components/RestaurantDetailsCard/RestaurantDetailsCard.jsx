@@ -5,6 +5,7 @@ import {ContainerProductsRestaurant, Button} from "./style"
 
 
 export function RestaurantDetailsCard({product, handleAddProduct, handleRemoveProduct}) {
+  
   const {arrayProducts} = useContext(GlobalContext)
   const { photoUrl, name, description, price } = product
   const [showUnits, setShowUnits] = useState(false)

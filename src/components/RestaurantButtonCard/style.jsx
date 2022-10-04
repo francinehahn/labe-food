@@ -17,27 +17,19 @@ export const RestaurantButtonCardStyle = styled.button`
         border-radius: 8px 8px 0 0;
     }
     section {
-        display: flex;
-        flex-direction: column;
+        width: 86vw;
         p {
             color: var(--mid-green);
-            margin-top: 12px;
-            margin-bottom: 5px;
-            margin-left: 17px;
+            margin: 12px 0 5px 17px;
             font-size: 16px;
         }
         div {
             display: flex;
             justify-content: space-between;
-            color: var(--greyish);
             span {
-                margin-left: 17px;
-                margin-right: 10px;
-                margin-bottom: 15px;
+                margin: 0 10px 15px 17px;
                 font-size: 16px;
-                :nth-child(2){
-                    margin-left: 155px;
-                }
+                color: var(--greyish);
             }
         }
     }    

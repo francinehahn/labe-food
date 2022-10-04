@@ -45,21 +45,21 @@ export function LoginPage() {
     const login = () => {
         axios.post(`${BASE_URL}/login`, form)
         .then((response) => {
-            setLoading(true)
+            setLoading(false)
             setIsValid(true)
             localStorage.getItem("ProductCart")===null && localStorage.setItem("ProductCart", JSON.stringify([]))
             localStorage.setItem("token", response.data.token)
             response.data.user.hasAddress ? goToFeedPage(navigate) : goToAddAddressPage(navigate)
         })
         .catch(() => {
-            setLoading(true)
+            setLoading(false)
             setIsValid(false)
         })
-        setLoading(false)
     }
 
     const onSubmit = (e) => {
         e.preventDefault()
+        setLoading(true)
         setIsEmailValid(validateEmail(form.email))
         setIsPasswordValid(validatePassword(form.password))
         isEmailValid && isPasswordValid && login()

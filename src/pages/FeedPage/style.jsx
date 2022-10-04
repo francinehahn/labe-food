@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const FeedPageStyle = styled.div`
+export const FeedPageStyle = styled.section `
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,7 +8,7 @@ export const FeedPageStyle = styled.div`
     margin-bottom: 20vh;
 `
 
-export const CardsContainer = styled.main`
+export const CardsContainer = styled.main `
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@ export const CardsContainer = styled.main`
     margin-bottom: 60px;
 `
 
-export const ButtonSearch = styled.button`
+export const ButtonSearch = styled.button `
     display: flex;
     align-items: center;
     background-color: white;
@@ -26,9 +26,7 @@ export const ButtonSearch = styled.button`
     padding: 19px 48px 19px 16px;
     border-radius: 2px;
     border: 1px solid var(--greyish);
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-size: 16px;
+    margin: 10px 0 15px 0;
     svg {
         width: 24px;
         height: 24px;
@@ -42,17 +40,15 @@ export const ButtonSearch = styled.button`
 
 `
 
-export const FiltersContainer = styled.div`
+export const FiltersContainer = styled.div `
     display: flex;
     align-items: center;
     width: 88vw;
     height: 42px;
     overflow: auto;    
-
     ::-webkit-scrollbar{
          background-color: white;
     }
-
     button {
         width: 87px;
         height: 18px;

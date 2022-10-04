@@ -47,11 +47,12 @@ export const TextContainer = styled.div `
 
 export const LoadingButtonLogin = styled.div `
     border-radius: 50%;
-    background-color: transparent;
     border: 3px solid white;
-    //border-bottom: 3px solid transparent;
+    border-bottom: 3px solid transparent;
     width: 25px;
     height: 25px;
+    display: block;
+    margin: 0 auto;
     
     @keyframes animationLoading {
         0% {

@@ -99,7 +99,7 @@ export function CartPage() {
         <Container>
             <address>
                 <p>Endereço de entrega</p>
-                {isLoading && <Loading/>}
+                {isLoading && <p>Carregando. . .</p>}
                 {!isLoading && error && <p>Ocorreu um erro ao carregar o endereço.</p>}
                 {!isLoading && data && <p>{address}</p>}
             </address>
