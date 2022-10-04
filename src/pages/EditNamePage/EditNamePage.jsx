@@ -44,7 +44,7 @@ export function EditNamePage() {
         color = '#e02020'
     }
 
-    const EditProfile = () => {
+    const editProfile = () => {
         axios.put(`${BASE_URL}/profile`, form, {
             headers: {
                 auth: localStorage.getItem("token")
@@ -57,20 +57,22 @@ export function EditNamePage() {
         .catch((error) => {
             setErrorText(error.response.data.message)
             setIsValid(false)
+            alert(errorText)
         })
     }
 
     const onSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         setIsEmailValid(validateEmail(form.email))
         setIsCPFValid(validateCPF(form.cpf))
         setIsNameValid(validateName(form.name))
-        isEmailValid && isCPFValid && isNameValid && EditProfile()
+        isEmailValid && isCPFValid && isNameValid && editProfile()
     }
 
     return (
         <>
-            <Header showArrow={'true'} showTitle={'true'} title={'Editar'} />
+            <Header showArrow={'true'} showTitle={'true'} title={'Editar'}/>
+
             <EditNameStyle>
                 <form onSubmit={onSubmit}>
                     <Name name="name" value={form.name} onChange={onChange} color={color} isValid={isNameValid} />

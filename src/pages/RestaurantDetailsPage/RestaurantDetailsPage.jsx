@@ -21,7 +21,7 @@ export function RestaurantDetailsPage() {
 
   useEffect(() => {
     let productsInCart = JSON.parse(localStorage.getItem("ProductCart"))
-    {productsInCart && setArrayProducts(productsInCart)}
+    productsInCart && setArrayProducts(productsInCart)
   }, [])
 
   const handleAddProduct = (product, quantity) => {

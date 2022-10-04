@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
-export const RestaurantButtonCardStyle = styled.button`
+export const RestaurantButtonCardStyle = styled.button `
     display: flex;
     flex-direction: column;
     background-color: white;
     width: 88vw;
     height: 220px;
     border-radius: 8px;
-    border: solid 1px var(--greyish);
+    border: 1px solid var(--greyish);
     text-align: start;
-    white-space: nowrap;
     margin-bottom: 10px;
     img {
         width: 100%;

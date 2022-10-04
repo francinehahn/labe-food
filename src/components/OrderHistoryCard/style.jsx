@@ -9,9 +9,9 @@ export const StyleCardHistory = styled.div `
     p {
         letter-spacing: -0.39px;
         padding: 3px 0;
-        :nth-child(1){
-        font-size: 16px;
-        color: var(--mid-green);
+        :nth-child(1) {
+            font-size: 16px;
+            color: var(--mid-green);
         }
         :nth-child(2) {
             font-size: 12px;

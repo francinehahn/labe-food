@@ -10,7 +10,7 @@ export function RestaurantButtonCard({restaurant}) {
 
     return (
         <RestaurantButtonCardStyle onClick={()=>{goToRestaurantPage(navigate, restaurant.id)}}>
-            <img src={restaurant.logoUrl} alt="Logo do Restaurante"/>
+            <img src={restaurant.logoUrl} alt={`Logo do restaurante ${restaurant.name}`}/>
             <section>
                 <p>{restaurant.name}</p>
                 <div>

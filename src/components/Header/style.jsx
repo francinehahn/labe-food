@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 
 export const HeaderContainer = styled.header `
@@ -10,7 +10,7 @@ export const HeaderContainer = styled.header `
     background-color: #fff;
     border-bottom: 1px solid lightgray;
     svg {
-        margin: 8px 128px 0 16px;
+        margin: 8px 30vw 0 16px;
         width: 23px;
         height: 24px;
     }

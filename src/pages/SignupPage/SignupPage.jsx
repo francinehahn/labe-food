@@ -71,8 +71,10 @@ export function SignupPage() {
     return (
         <>
         <Header showArrow={'true'} showTitle={'false'} title={'Cadastro'}/>
+        
         <SignupPageStyle>
             <img src={logo} alt="Future Eats"/>
+            
             <TextContainer>
                 <p>Cadastrar</p>
             </TextContainer>                

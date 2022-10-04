@@ -1,7 +1,7 @@
 import React from "react"
 import { Header } from "../../components/Header/Header"
 import {ImPencil} from 'react-icons/im'
-import { ProfileStyle, AdressStyle, StyleHistory, ProfilePageStyle} from "./style"
+import { ProfileStyle, AdressStyle, StyleHistory } from "./style"
 import { OrderHistoryCard } from "../../components/OrderHistoryCard/OrderHistoryCard"
 import { Footer } from "../../components/Footer/Footer"
 import * as MyRoutes from "../../routes/coordinator"
@@ -18,61 +18,60 @@ export function ProfilePage() {
 
     const navigate = useNavigate()
 
-    const [data, error, isLoading] = useRequestData(`${BASE_URL}/profile`, localStorage.getItem("token"))
+    const [profileData, error, isLoading] = useRequestData(`${BASE_URL}/profile`, localStorage.getItem("token"))
     
-    data && localStorage.setItem("address", JSON.stringify(data.user.address))
-    data && localStorage.setItem("name", JSON.stringify(data.user.name))
-    data && localStorage.setItem("email", JSON.stringify(data.user.email))
-    data && localStorage.setItem("cpf", JSON.stringify(data.user.cpf))
+    profileData && localStorage.setItem("address", JSON.stringify(profileData.user.address))
+    profileData && localStorage.setItem("name", JSON.stringify(profileData.user.name))
+    profileData && localStorage.setItem("email", JSON.stringify(profileData.user.email))
+    profileData && localStorage.setItem("cpf", JSON.stringify(profileData.user.cpf))
 
-    const [data1] = useRequestData(`${BASE_URL}/profile/address`, localStorage.getItem("token"))
+    const [addressData] = useRequestData(`${BASE_URL}/profile/address`, localStorage.getItem("token"))
     
-    data1 && localStorage.setItem("street", JSON.stringify(data1.address.street))
-    data1 && localStorage.setItem("number", JSON.stringify(data1.address.number))
-    data1 && localStorage.setItem("neighbourhood", JSON.stringify(data1.address.neighbourhood))
-    data1 && localStorage.setItem("city", JSON.stringify(data1.address.city))
-    data1 && localStorage.setItem("state", JSON.stringify(data1.address.state))
-    data1 && localStorage.setItem("complement", JSON.stringify(data1.address.complement))
+    addressData && localStorage.setItem("street", JSON.stringify(addressData.address.street))
+    addressData && localStorage.setItem("number", JSON.stringify(addressData.address.number))
+    addressData && localStorage.setItem("neighbourhood", JSON.stringify(addressData.address.neighbourhood))
+    addressData && localStorage.setItem("city", JSON.stringify(addressData.address.city))
+    addressData && localStorage.setItem("state", JSON.stringify(addressData.address.state))
+    addressData && localStorage.setItem("complement", JSON.stringify(addressData.address.complement))
 
-    const Profile = data &&
+    const profile = profileData &&
         <ProfileStyle>
             <div>
-                <p>{data.user.name}</p>
-                <p>{data.user.email}</p>
-                <p>{data.user.cpf}</p>
+                <p>{profileData.user.name}</p>
+                <p>{profileData.user.email}</p>
+                <p>{profileData.user.cpf}</p>
             </div>
             <ImPencil onClick={() => MyRoutes.goToEditNamePage(navigate)}/>
         </ProfileStyle>
 
-     const Address = data &&
+     const address = profileData &&
         <AdressStyle>
             <div>
                 <p>Endereço cadastrado</p>
-                <p>{data.user.address}</p>
+                <p>{profileData.user.address}</p>
             </div>
             <ImPencil onClick={() => MyRoutes.goToEditAddressPage(navigate)}/>
         </AdressStyle>
         
 
     return (
-        <ProfilePageStyle>
+        <>
             <Header showArrow={'false'} showTitle={'true'} title={"Meu perfil"} />
-            <>
-                {isLoading && <Loading/>}
-                {!isLoading && data && Profile}
-                {!isLoading && !data && <p>{error}</p>}
-            </>
-            <>
-                {isLoading && <Loading/>}
-                {!isLoading && data && Address}
-                {!isLoading && error && <p>{error}</p>}
-            </>
+
+            {isLoading && <Loading/>}
+            {!isLoading && profileData && profile}
+            {!isLoading && error && <p>{error}</p>}
+            
+            {isLoading && <Loading/>}
+            {!isLoading && profileData && address}
+            {!isLoading && error && <p>{error}</p>}
+
             <StyleHistory>
                 <h4>Histórico de pedidos</h4>
                 <OrderHistoryCard/>
             </StyleHistory>
             
             <Footer color1={'#B8B8B8'} color2={'#B8B8B8'} color3={'#5CB646'}/>  
-        </ProfilePageStyle>
+        </>
     )
 }

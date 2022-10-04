@@ -1,9 +1,5 @@
 import styled from "styled-components"
 
-export const ProfilePageStyle = styled.section `
-    display: flex;
-    flex-direction: column;
-`
 
 export const ProfileStyle = styled.div `
   display: flex;
@@ -39,15 +35,12 @@ export const AdressStyle = styled.div `
   background-color: #eee;
   div {
     p {
-      width: 328px;
-      height: 18px;
       font-size: 16px;
       :nth-child(1) {
-        margin: 0 0 5px;
         color: var(--greyish);
       }
       :nth-child(2) {
-        margin: 5px 0 5px 0;
+        margin: 5px 0;
       }
     }
   }
@@ -57,7 +50,7 @@ export const AdressStyle = styled.div `
   }
 `
 
-export const StyleHistory = styled.div `
+export const StyleHistory = styled.section `
   display: flex;
   flex-direction: column;
   align-items: center;

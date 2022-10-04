@@ -2,7 +2,7 @@ import React from "react"
 import {OrderStyle} from './style'
 import {AiOutlineClockCircle} from 'react-icons/ai'
 
-export function Order() {
+export function OrderBanner() {
     const price = Number(localStorage.getItem("price")).toFixed(2).toString().replace(".", ",")
     
     return (

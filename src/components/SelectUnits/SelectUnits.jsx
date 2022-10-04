@@ -6,9 +6,7 @@ import { useForm } from "../../hooks/useForm"
 export function SelectUnits ({setShowUnits, handleAddProduct, product, id = "modal"}) {
   const units = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   
-  const [form, onChange] = useForm({
-    quantity: ""
-  })
+  const [form, onChange] = useForm({quantity: ""})
 
   const handleRemoveProducts = (e) => {
     (e.target.id === id) && setShowUnits(false)

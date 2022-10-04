@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import axios from "axios"
 import { Header } from '../../components/Header/Header'
 import { City } from "../../components/Inputs/City"
 import { Complement } from "../../components/Inputs/Complement"
@@ -9,7 +10,6 @@ import { Street } from "../../components/Inputs/Street"
 import { AddressPageStyle } from "./style"
 import { Button } from "../../components/Button/Button"
 import { useForm } from "../../hooks/useForm"
-import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import {BASE_URL, validateStreet, validateNumber, validateComplement, validateNeighbourhood, validateCity, validateState} from "../../constants/constants";
 import { goToProfilePage } from "../../routes/coordinator"
@@ -25,7 +25,7 @@ export function EditAddressPage() {
         neighbourhood: JSON.parse(localStorage.getItem("neighbourhood")),
         city: JSON.parse(localStorage.getItem("city")),
         state: JSON.parse(localStorage.getItem("state")),
-        complement: JSON.parse(localStorage.getItem("complement")),
+        complement: JSON.parse(localStorage.getItem("complement"))
     })
 
     const [isValid, setIsValid] = useState(true)
@@ -44,7 +44,7 @@ export function EditAddressPage() {
         color = '#e02020'
     }
 
-    const EditAddress = () => {
+    const editAddress = () => {
         axios.put(`${BASE_URL}/address`, form, {
             headers: {
                 "auth": localStorage.getItem("token")
@@ -58,6 +58,7 @@ export function EditAddressPage() {
         .catch((error) => {
             setErrorText(error.response.data.message)
             setIsValid(false)
+            alert(errorText)
         })
     }
 
@@ -69,7 +70,7 @@ export function EditAddressPage() {
         setIsCityValid(validateCity(form.city))
         setIsStateValid(validateState(form.state))
         setIsComplementValid(validateComplement(form.complement))
-        isStateValid && isNumberValid && isComplementValid && isNeighbourhoodValid && isCityValid && isStateValid && EditAddress()
+        isStateValid && isNumberValid && isComplementValid && isNeighbourhoodValid && isCityValid && isStateValid && editAddress()
     }
 
     return (

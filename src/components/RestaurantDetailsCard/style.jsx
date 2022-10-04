@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const ContainerProductsRestaurant = styled.section`
+export const ContainerProductsRestaurant = styled.section `
   display: flex;
   min-height: 120px;
   width: 88vw;

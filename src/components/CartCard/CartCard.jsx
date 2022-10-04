@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {GlobalContext} from "../../context/GlobalContext";
+import React, {useContext} from "react"
+import {GlobalContext} from "../../context/GlobalContext"
 import {Container} from './style'
 
 

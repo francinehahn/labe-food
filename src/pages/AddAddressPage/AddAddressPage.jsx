@@ -10,7 +10,7 @@ import { AddressPageStyle } from "./style"
 import { Button } from "../../components/Button/Button"
 import { useForm } from "../../hooks/useForm"
 import axios from "axios"
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"
 import { BASE_URL, validateStreet, validateNumber, validateComplement, validateNeighbourhood, validateCity, validateState } from "../../constants/constants"
 import { goToFeedPage } from "../../routes/coordinator"
 
@@ -57,11 +57,12 @@ export function AddAddressPage() {
         .catch((error) => {
             setErrorText(error.response.data.message)
             setIsValid(false)
+            alert(errorText)
         })
     }
 
-    const onSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = (e) => {
+        e.preventDefault()
         setIsStreetValid(validateStreet(form.street))
         setIsNumberValid(validateNumber(form.number))
         setIsNeighbourhoodValid(validateNeighbourhood(form.neighbourhood))
@@ -77,7 +78,7 @@ export function AddAddressPage() {
 
         <AddressPageStyle>
             <p>Meu endereço</p>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={handleSubmit}>
                 <Street name="street" value={form.street} onChange={onChange} color={color} isValid={isStreetValid}/>
                 <Number name="number" value={form.number} onChange={onChange} color={color} isValid={isNumberValid}/>
                 <Complement name="complement" value={form.complement} onChange={onChange} color={color} isValid={isComplementValid}/>

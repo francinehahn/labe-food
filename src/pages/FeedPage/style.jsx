@@ -8,7 +8,7 @@ export const FeedPageStyle = styled.section `
     margin-bottom: 20vh;
 `
 
-export const CardsContainer = styled.main `
+export const CardsContainer = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;

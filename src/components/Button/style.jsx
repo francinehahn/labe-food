@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const ButtonStyle = styled.button`
+export const ButtonStyle = styled.button `
     width: 88vw;
     height: 42px;
     background-color: ${props => props.color};
@@ -9,13 +9,11 @@ export const ButtonStyle = styled.button`
     border: none;
     transition: 0.2s;
     margin: 8px 16px;
-
     p {
         height: 18px;
         text-align: center;
         color: var(--black);
     }
-
     :active {
         transform: scale(0.98)
     }

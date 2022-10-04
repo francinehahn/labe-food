@@ -7,7 +7,7 @@ import { goToSearchPage } from "../../routes/coordinator"
 import { useNavigate } from "react-router-dom"
 import { Footer } from "../../components/Footer/Footer"
 import {RestaurantButtonCard} from "../../components/RestaurantButtonCard/RestaurantButtonCard"
-import { Order } from "../../components/Order/Order"
+import { OrderBanner } from "../../components/OrderBanner/OrderBanner"
 import {useProtectedPage} from "../../hooks/useProtectedPage"
 import {useRequestData} from "../../hooks/useRequestData"
 import { BASE_URL } from "../../constants/constants"
@@ -40,20 +40,20 @@ export function FeedPage() {
                 </ButtonSearch>
 
                 <FiltersContainer>
-                    <button onClick={()=>{setCategory("Hamburguer")}}>Burger</button>
-                    <button onClick={()=>{setCategory("Asiática")}}>Asiática</button>
-                    <button onClick={()=>{setCategory("Árabe")}}>Árabe</button>
-                    <button onClick={()=>{setCategory("Italiana")}}>Italiana</button>
-                    <button onClick={()=>{setCategory("Sorvetes")}}>Sorvetes</button>
-                    <button onClick={()=>{setCategory("Carnes")}}>Carnes</button>
-                    <button onClick={()=>{setCategory("Baiana")}}>Baiana</button>
-                    <button onClick={()=>{setCategory("Petiscos")}}>Petiscos</button>
-                    <button onClick={()=>{setCategory("Mexicana")}}>Mexicana</button>               
+                    <button onClick={() => setCategory("Hamburguer")}>Burger</button>
+                    <button onClick={() => setCategory("Asiática")}>Asiática</button>
+                    <button onClick={() => setCategory("Árabe")}>Árabe</button>
+                    <button onClick={() => setCategory("Italiana")}>Italiana</button>
+                    <button onClick={() => setCategory("Sorvetes")}>Sorvetes</button>
+                    <button onClick={() => setCategory("Carnes")}>Carnes</button>
+                    <button onClick={() => setCategory("Baiana")}>Baiana</button>
+                    <button onClick={() => setCategory("Petiscos")}>Petiscos</button>
+                    <button onClick={() => setCategory("Mexicana")}>Mexicana</button>               
                 </FiltersContainer>
 
                 <CardsContainer>
                     {restaurantsList}
-                    {localStorage.getItem("orderInProgress")==="true" && <Order/>}
+                    {localStorage.getItem("orderInProgress")==="true" && <OrderBanner/>}
                 </CardsContainer>          
 
                 </>

@@ -34,7 +34,7 @@ export function LoginPage() {
     useEffect(() => {
         setTimeout(() => {
             setShowLogo(false)
-        }, 2000)
+        }, 1500)
     }, [])
 
     const [form, onChange] = useForm({
@@ -51,13 +51,14 @@ export function LoginPage() {
             localStorage.setItem("token", response.data.token)
             response.data.user.hasAddress ? goToFeedPage(navigate) : goToAddAddressPage(navigate)
         })
-        .catch(() => {
+        .catch((err) => {
             setLoading(false)
             setIsValid(false)
+            alert(err.response.data.message)
         })
     }
 
-    const onSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         setLoading(true)
         setIsEmailValid(validateEmail(form.email))
@@ -80,7 +81,7 @@ export function LoginPage() {
                     <p>Entrar</p>
                 </TextContainer>
 
-                <form onSubmit={onSubmit}>
+                <form onSubmit={handleSubmit}>
                     <Email value={form.email} onChange={onChange} name="email" color={color} isValid={isEmailValid}/>
                     <Password value={form.password} onChange={onChange} name="password" label="Senha*" placeholder="Mínimo 6 caracteres" color={color} isValid={isPasswordValid} errorMessage="A senha deve possuir no mínimo 6 caracteres."/>
                     {!isEmailValid && !isPasswordValid && <p> E-mail e/ou senha incorretos. Tente novamente.</p>}

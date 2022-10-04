@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-export const AddressPageStyle = styled.div`
+export const AddressPageStyle = styled.section`
     display: flex;
     flex-direction: column;
     display: flex;
