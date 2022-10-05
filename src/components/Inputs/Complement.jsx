@@ -2,12 +2,12 @@ import React from "react"
 import { InputStyle } from "./styled"
 
 
-export function Complement ({ value, onChange, color }) {      
+export function Complement ({ value, onChange }) {      
+    
     return (
-        <InputStyle color={color}>
+        <InputStyle color={'#B8B8B8'}>
             <label>Complemento</label>
-            <input name="complement" value={value} onChange={onChange} placeholder="Apto./Bloco" type="text"
-                title="Digite o nome com pelo menos 3 carateres" />
+            <input type="text" name="complement" value={value} onChange={onChange} placeholder="Apto./Bloco"/>
         </InputStyle>
     )
 }

@@ -20,16 +20,9 @@ export function LoginPage() {
 
     const [showLogo, setShowLogo] = useState(true)
     const [loading, setLoading] = useState(false)
-    const [isValid, setIsValid] = useState(true)
     const [isEmailValid, setIsEmailValid] = useState(true)
     const [isPasswordValid, setIsPasswordValid] = useState(true)
-
-    let color
-    if(isValid===true) {
-        color = '#B8B8B8'
-    } else {
-        color = '#e02020'
-    }
+    const [error, setError] = useState("")
 
     useEffect(() => {
         setTimeout(() => {
@@ -46,15 +39,13 @@ export function LoginPage() {
         axios.post(`${BASE_URL}/login`, form)
         .then((response) => {
             setLoading(false)
-            setIsValid(true)
             localStorage.getItem("ProductCart")===null && localStorage.setItem("ProductCart", JSON.stringify([]))
             localStorage.setItem("token", response.data.token)
             response.data.user.hasAddress ? goToFeedPage(navigate) : goToAddAddressPage(navigate)
         })
         .catch((err) => {
             setLoading(false)
-            setIsValid(false)
-            alert(err.response.data.message)
+            setError(err.response.data.message)
         })
     }
 
@@ -82,9 +73,9 @@ export function LoginPage() {
                 </TextContainer>
 
                 <form onSubmit={handleSubmit}>
-                    <Email value={form.email} onChange={onChange} name="email" color={color} isValid={isEmailValid}/>
-                    <Password value={form.password} onChange={onChange} name="password" label="Senha*" placeholder="Mínimo 6 caracteres" color={color} isValid={isPasswordValid} errorMessage="A senha deve possuir no mínimo 6 caracteres."/>
-                    {!isEmailValid && !isPasswordValid && <p> E-mail e/ou senha incorretos. Tente novamente.</p>}
+                    <Email value={form.email} onChange={onChange} name="email" isValid={isEmailValid}/>
+                    <Password value={form.password} onChange={onChange} name="password" label="Senha*" placeholder="Mínimo 6 caracteres" isValid={isPasswordValid} errorMessage="A senha deve possuir no mínimo 6 caracteres."/>
+                    <p>{error}</p>
                     {loading? <Button color={'#5cb646'} buttonTitle={<LoadingButtonLogin> </LoadingButtonLogin>} /> : <Button color={'#5cb646'} buttonTitle="Entrar"/>}
                 </form>
 

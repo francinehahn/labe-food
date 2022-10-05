@@ -4,29 +4,32 @@ import {BsFillEyeSlashFill} from 'react-icons/bs'
 import {IoEyeSharp} from 'react-icons/all'
 
 
-export function Password ( { label, name, placeholder, value, onChange, color, isValid, errorMessage} ) {
+export function Password ( { label, name, placeholder, errorMessage, value, onChange, isValid} ) {
     const [showPassword, setShowPassword] = useState(false)
     const clickShowPassword = () => setShowPassword(!showPassword)
 
+    let color
+    isValid ? color='#B8B8B8' : color='#e02020'
+
     return (
         <>
-        <InputPassword color={color}>
-            <label>{label}</label>
-            <div>
-                <input 
-                    name={name}
-                    value={value} 
-                    onChange={onChange} 
-                    placeholder={placeholder}
-                    type={showPassword ? "text" : "password"} 
-                />
-                <button onClick={clickShowPassword} type="button">
-                    {showPassword ? <IoEyeSharp/> : <BsFillEyeSlashFill/>}
-                </button>
-            </div>
-        </InputPassword>
+            <InputPassword color={color}>
+                <label>{label}</label>
+                <div>
+                    <input 
+                        name={name}
+                        value={value} 
+                        onChange={onChange} 
+                        placeholder={placeholder}
+                        type={showPassword ? "text" : "password"} 
+                    />
+                    <button onClick={clickShowPassword} type="button">
+                        {showPassword ? <IoEyeSharp/> : <BsFillEyeSlashFill/>}
+                    </button>
+                </div>
+            </InputPassword>
 
-        {isValid ? undefined : <p>{errorMessage}</p>}
+            {!isValid && <p>{errorMessage}</p>}
         </>
     )
 }

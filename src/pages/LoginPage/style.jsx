@@ -25,7 +25,7 @@ export const LoginPageStyle = styled.section `
         margin: 68px 0 16px;
     }
     form > p {
-        margin: 0 32px;
+        margin: 5px 20px;
         letter-spacing: -0.29px;
         font-size: 12px;
         color: var(--red);
@@ -47,7 +47,7 @@ export const TextContainer = styled.div `
 
 export const LoadingButtonLogin = styled.div `
     border-radius: 50%;
-    border: 3px solid white;
+    border: 3px solid black;
     border-bottom: 3px solid transparent;
     width: 25px;
     height: 25px;

@@ -2,12 +2,20 @@ import React from "react"
 import { InputStyle } from "./styled"
 
 
-export function Neighbourhood ({ value, onChange, color }) {
+export function Neighbourhood ({ value, onChange, isValid }) {
+    
+    let color
+    isValid ? color='#B8B8B8' : color='#e02020'
+    
     return (
-        <InputStyle color={color}>
-            <label>Bairro*</label>
-            <input name="neighbourhood" value={value} onChange={onChange} placeholder="Bairro" type="text"
-                title="Digite o nome com pelo menos 3 carateres" />
-        </InputStyle>
+        <>
+            <InputStyle color={color}>
+                <label>Bairro*</label>
+                <input type="text" name="neighbourhood" value={value} onChange={onChange} placeholder="Bairro"
+                    title="Digite o nome com pelo menos 3 carateres"/>
+            </InputStyle>
+
+            {!isValid && <p>Bairro em formato inválido.</p>}
+        </>
     )
 }

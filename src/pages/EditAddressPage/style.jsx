@@ -1,19 +1,12 @@
 import styled from "styled-components"
 
-export const AddressPageStyle = styled.section`
+export const Form = styled.form `
     display: flex;
     flex-direction: column;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    width: 100%;
     margin-top: 15px;
-    img {
-        width: 104px;
-        height: 58px;
-    }
-    form > p {
-        margin: 0 32px;
+    p {
+        margin: 5px 32px;
         letter-spacing: -0.29px;
         font-size: 12px;
         color: var(--red);

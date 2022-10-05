@@ -27,24 +27,12 @@ export function SignupPage() {
     })
 
     const [confirmPassword, setConfirmPassword] = useState("")
-    const [isValid, setIsValid] = useState(true)
     const [isEmailValid, setIsEmailValid] = useState(true)
     const [isPasswordValid, setIsPasswordValid] = useState(true)
     const [isCPFValid, setIsCPFValid] = useState(true)
     const [isNameValid, setIsNameValid] = useState(true)
     const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(true)
-    const [errorText, setErrorText] = useState(undefined)
-
-    let color
-    if(isValid) {
-        color = '#B8B8B8'
-    } else {
-        color = '#e02020'
-    }
-
-    useEffect(() => {
-        form.password === confirmPassword? setIsConfirmPasswordValid(true) : setIsConfirmPasswordValid(false)
-    }, [confirmPassword, form.password])
+    const [errorText, setErrorText] = useState("")
 
     const signUp = () => {
         axios.post(`${BASE_URL}/signup`, form)
@@ -55,17 +43,24 @@ export function SignupPage() {
         })
         .catch((error) => {
             setErrorText(error.response.data.message)
-            setIsValid(false)
         })
     }
 
     const onSubmit = (e) => {
-        e.preventDefault();
-        setIsEmailValid(validateEmail(form.email))
-        setIsPasswordValid(validatePassword(form.password))
-        setIsCPFValid(validateCPF(form.cpf))
-        setIsNameValid(validateName(form.name))
-        isEmailValid && isPasswordValid && isCPFValid && isNameValid && isConfirmPasswordValid && signUp()  
+        e.preventDefault()
+
+        form.name === "" ? setIsNameValid(false) : setIsNameValid(validateName(form.name))
+        form.email === "" ? setIsEmailValid(false) : setIsEmailValid(validateEmail(form.email))
+        form.password === "" ? setIsPasswordValid(false) : setIsPasswordValid(validatePassword(form.password))
+        form.cpf === null ? setIsCPFValid(false) : setIsCPFValid(validateCPF(form.cpf))
+        
+        form.password === confirmPassword? setIsConfirmPasswordValid(true) : setIsConfirmPasswordValid(false)
+
+        if (isEmailValid && isPasswordValid && isCPFValid && isNameValid && isConfirmPasswordValid) {
+            signUp()
+        } else {
+            return
+        }   
     }
     
     return (
@@ -80,13 +75,13 @@ export function SignupPage() {
             </TextContainer>                
     
             <form onSubmit={onSubmit}>
-                <Name name="name" value={form.name} onChange={onChange} color={color} isValid={isNameValid}/>
-                <Email name="email" value={form.email} onChange={onChange} color={color} isValid={isEmailValid}/>
-                <CPF name="cpf" value={form.cpf} onChange={onChange} color={color} isValid={isCPFValid}/>
-                <Password name="password" value={form.password} onChange={onChange} label="Senha*" placeholder="Mínimo 6 caracteres" color={color} isValid={isPasswordValid} errorMessage="A senha deve possuir no mínimo 6 caracteres"/>
-                <Password name="password-check" value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}} label="Confirmar*" placeholder="Confirme a senha anterior" color={color} isValid={isConfirmPasswordValid} errorMessage="Deve ser a mesma que a anterior."/>
-                {!isEmailValid && !isPasswordValid && !isCPFValid && !isNameValid && !isConfirmPasswordValid ? <p>{errorText}.</p> : undefined}
-                <Button type="submit" color={'#5cb646'} buttonTitle="Criar"/>
+                <Name name="name" value={form.name} onChange={onChange} isValid={isNameValid}/>
+                <Email name="email" value={form.email} onChange={onChange} isValid={isEmailValid}/>
+                <CPF name="cpf" value={form.cpf} onChange={onChange} isValid={isCPFValid}/>
+                <Password name="password" value={form.password} onChange={onChange} label="Senha*" isValid={isPasswordValid} errorMessage="A senha deve possuir no mínimo 6 caracteres"/>
+                <Password name="password-check" value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}} label="Confirmar*" placeholder="Confirme a senha anterior" isValid={isConfirmPasswordValid} errorMessage="Deve ser a mesma que a anterior."/>
+                <p>{errorText}</p>
+                <Button color={'#5cb646'} buttonTitle="Criar"/>
             </form>
         </SignupPageStyle>
         </>
