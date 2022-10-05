@@ -51,8 +51,8 @@ export function SignupPage() {
 
     const onSubmit = (e) => {
         e.preventDefault()
-
         setLoading(true)
+        
         form.name === "" ? setIsNameValid(false) : setIsNameValid(validateName(form.name))
         form.email === "" ? setIsEmailValid(false) : setIsEmailValid(validateEmail(form.email))
         form.password === "" ? setIsPasswordValid(false) : setIsPasswordValid(validatePassword(form.password))

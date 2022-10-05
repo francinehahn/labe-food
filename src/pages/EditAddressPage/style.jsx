@@ -13,3 +13,9 @@ export const Form = styled.form `
     }
 `
 
+export const SuccessMessage = styled.p `
+    font-size: 14px;
+    margin: 10px 0;
+    color: var(--mid-green);
+    text-align: center;
+`
