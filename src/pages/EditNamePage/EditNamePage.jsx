@@ -46,11 +46,7 @@ export function EditNamePage() {
         setIsCPFValid(validateCPF(form.cpf))
         setIsNameValid(validateName(form.name))
         
-        if (isEmailValid && isCPFValid && isNameValid) {
-            editProfile()
-        } else {
-            return
-        }
+        isEmailValid && isCPFValid && isNameValid && editProfile()
     }
 
     return (

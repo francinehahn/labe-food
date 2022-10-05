@@ -53,18 +53,14 @@ export function SignupPage() {
         e.preventDefault()
         setLoading(true)
         
-        form.name === "" ? setIsNameValid(false) : setIsNameValid(validateName(form.name))
-        form.email === "" ? setIsEmailValid(false) : setIsEmailValid(validateEmail(form.email))
-        form.password === "" ? setIsPasswordValid(false) : setIsPasswordValid(validatePassword(form.password))
-        form.cpf === null ? setIsCPFValid(false) : setIsCPFValid(validateCPF(form.cpf))
+        setIsNameValid(validateName(form.name))
+        setIsEmailValid(validateEmail(form.email))
+        setIsPasswordValid(validatePassword(form.password))
+        setIsCPFValid(validateCPF(form.cpf))
         
         form.password === confirmPassword? setIsConfirmPasswordValid(true) : setIsConfirmPasswordValid(false)
 
-        if (isEmailValid && isPasswordValid && isCPFValid && isNameValid && isConfirmPasswordValid) {
-            signUp()
-        } else {
-            return
-        }   
+        isEmailValid && isPasswordValid && isCPFValid && isNameValid && isConfirmPasswordValid && signUp() 
     }
     
     return (
@@ -84,7 +80,7 @@ export function SignupPage() {
                 <CPF name="cpf" value={form.cpf} onChange={onChange} isValid={isCPFValid}/>
                 <Password name="password" value={form.password} onChange={onChange} label="Senha*" isValid={isPasswordValid} errorMessage="A senha deve possuir no mínimo 6 caracteres"/>
                 <Password name="password-check" value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}} label="Confirmar*" placeholder="Confirme a senha anterior" isValid={isConfirmPasswordValid} errorMessage="Deve ser a mesma que a anterior."/>
-                <p>{errorText}</p>
+                {errorText !== "" && <p>{errorText}</p>}
                 {loading? <Button color={'#5cb646'} buttonTitle={<LoadingButtonLogin> </LoadingButtonLogin>} /> : <Button color={'#5cb646'} buttonTitle="Criar"/>}
             </form>
         </SignupPageStyle>

@@ -75,7 +75,7 @@ export function LoginPage() {
                 <form onSubmit={handleSubmit}>
                     <Email value={form.email} onChange={onChange} name="email" isValid={isEmailValid}/>
                     <Password value={form.password} onChange={onChange} name="password" label="Senha*" placeholder="Mínimo 6 caracteres" isValid={isPasswordValid} errorMessage="A senha deve possuir no mínimo 6 caracteres."/>
-                    <p>{error}</p>
+                    {error && <p>{error}</p>}
                     {loading? <Button color={'#5cb646'} buttonTitle={<LoadingButtonLogin> </LoadingButtonLogin>} /> : <Button color={'#5cb646'} buttonTitle="Entrar"/>}
                 </form>
 
