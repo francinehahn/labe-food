@@ -10,7 +10,7 @@
 * [Link to access the app](#link-to-access-the-app)
 * [Technologies used](#technologies-used)
 * [Who made this project](#who-made-this-project)
-* [Conclusion] (#conclusion)
+* [Conclusion](#conclusion)
 
 
 # Project description
