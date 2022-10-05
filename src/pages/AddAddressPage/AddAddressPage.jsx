@@ -78,7 +78,7 @@ export function AddAddressPage() {
                 <City name="city" value={form.city} onChange={onChange} isValid={isCityValid}/>
                 <State name="state" value={form.state} onChange={onChange} isValid={isStateValid}/>
                 <p>{errorText}.</p>
-                {loading? <Button color={'#5cb646'} buttonTitle={<LoadingButtonLogin> </LoadingButtonLogin>} /> : <Button color={'#5cb646'} buttonTitle="Entrar"/>}
+                {loading? <Button color={'#5cb646'} buttonTitle={<LoadingButtonLogin> </LoadingButtonLogin>} /> : <Button color={'#5cb646'} buttonTitle="Salvar"/>}
             </form>
         </AddressPageStyle>
         </>
