@@ -16,9 +16,9 @@ export function EditNamePage() {
     useProtectedPage()   
 
     const [saveChanges, setSaveChanges] = useState(false)
-    const [isEmailValid, setIsEmailValid] = useState(true)
-    const [isCPFValid, setIsCPFValid] = useState(true)
-    const [isNameValid, setIsNameValid] = useState(true)
+    const [isEmailValid, setIsEmailValid] = useState(undefined)
+    const [isCPFValid, setIsCPFValid] = useState(undefined)
+    const [isNameValid, setIsNameValid] = useState(undefined)
     const [errorText, setErrorText] = useState("")
 
     const [form, onChange] = useForm({

@@ -9,7 +9,7 @@ export function Password ( { label, name, placeholder, errorMessage, value, onCh
     const clickShowPassword = () => setShowPassword(!showPassword)
 
     let color
-    isValid ? color='#B8B8B8' : color='#e02020'
+    isValid===true || isValid===undefined ? color='#B8B8B8' : color='#e02020'
 
     return (
         <>
@@ -29,7 +29,7 @@ export function Password ( { label, name, placeholder, errorMessage, value, onCh
                 </div>
             </InputPassword>
 
-            {!isValid && <p>{errorMessage}</p>}
+            {isValid===false && <p>{errorMessage}</p>}
         </>
     )
 }

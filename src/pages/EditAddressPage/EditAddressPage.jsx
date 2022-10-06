@@ -16,11 +16,11 @@ import {BASE_URL, validateStreet, validateNumber, validateNeighbourhood, validat
 export function EditAddressPage() {
 
     const [saveChanges, setSaveChanges] = useState(false)
-    const [isStreetValid, setIsStreetValid] = useState(true)
-    const [isNumberValid, setIsNumberValid] = useState(true)
-    const [isNeighbourhoodValid, setIsNeighbourhoodValid] = useState(true)
-    const [isCityValid, setIsCityValid] = useState(true)
-    const [isStateValid, setIsStateValid] = useState(true)
+    const [isStreetValid, setIsStreetValid] = useState(undefined)
+    const [isNumberValid, setIsNumberValid] = useState(undefined)
+    const [isNeighbourhoodValid, setIsNeighbourhoodValid] = useState(undefined)
+    const [isCityValid, setIsCityValid] = useState(undefined)
+    const [isStateValid, setIsStateValid] = useState(undefined)
     const [errorText, setErrorText] = useState("")
 
     const [form, onChange] = useForm({

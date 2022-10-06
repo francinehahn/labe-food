@@ -36,7 +36,7 @@ export const Payment = styled.section `
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0 20px 10vh 20px;
+    margin: 0 20px 0 20px;
     span {
         text-align: right;
         margin: 5px 20px 0 0;
@@ -58,7 +58,7 @@ export const Payment = styled.section `
         display: flex;
         flex-direction: column;
         gap: 8px;
-        margin: 0 25px;
+        margin: 0 25px 12vh 25px;
         p {
             margin-top: 15px;
             line-height: 33px;
@@ -95,4 +95,5 @@ export const ButtonSection = styled.div `
     position: absolute;
     bottom: 60px;
     margin-left: 8px;
+    background-color: white;
 `

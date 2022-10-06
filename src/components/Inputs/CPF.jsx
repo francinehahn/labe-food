@@ -5,7 +5,7 @@ import { InputStyle } from "./styled"
 export function CPF ({ value, onChange, isValid }) {
     
     let color
-    isValid ? color='#B8B8B8' : color='#e02020'
+    isValid===true || isValid===undefined ? color='#B8B8B8' : color='#e02020'
     
     return (
         <>
@@ -14,7 +14,7 @@ export function CPF ({ value, onChange, isValid }) {
                 <input type="number" name="cpf" value={value} onChange={onChange} placeholder="Não adicionar ponto e hífen"/>
             </InputStyle>
 
-            {!isValid && <p>CPF em formato inválido.</p>}
+            {isValid===false && <p>CPF em formato inválido.</p>}
         </>
     )
 }

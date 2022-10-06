@@ -20,8 +20,8 @@ export function LoginPage() {
 
     const [showLogo, setShowLogo] = useState(true)
     const [loading, setLoading] = useState(false)
-    const [isEmailValid, setIsEmailValid] = useState(true)
-    const [isPasswordValid, setIsPasswordValid] = useState(true)
+    const [isEmailValid, setIsEmailValid] = useState(undefined)
+    const [isPasswordValid, setIsPasswordValid] = useState(undefined)
     const [error, setError] = useState("")
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export function LoginPage() {
 
     const login = () => {
         setLoading(true)
-        
+
         axios.post(`${BASE_URL}/login`, form)
         .then((response) => {
             setLoading(false)

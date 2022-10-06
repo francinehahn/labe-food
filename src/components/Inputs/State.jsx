@@ -5,7 +5,7 @@ import { InputStyle } from "./styled"
 export function State ({ value, onChange, isValid }) {
     
     let color
-    isValid ? color='#B8B8B8' : color='#e02020'
+    isValid===true || isValid===undefined ? color='#B8B8B8' : color='#e02020'
     
     return (
         <>
@@ -15,7 +15,7 @@ export function State ({ value, onChange, isValid }) {
                     title="Digite o nome com pelo menos 2 carateres"/>
             </InputStyle>
 
-            {!isValid && <p>Estado em formato inválido.</p>}
+            {isValid===false && <p>Estado em formato inválido.</p>}
         </>
     )
 }

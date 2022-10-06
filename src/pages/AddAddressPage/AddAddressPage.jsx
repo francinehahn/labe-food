@@ -21,12 +21,12 @@ export function AddAddressPage() {
     const token = localStorage.getItem("token")
 
     const [loading, setLoading] = useState(false)
-    const [isStreetValid, setIsStreetValid] = useState(true)
-    const [isNumberValid, setIsNumberValid] = useState(true)
-    const [isNeighbourhoodValid, setIsNeighbourhoodValid] = useState(true)
-    const [isCityValid, setIsCityValid] = useState(true)
-    const [isStateValid, setIsStateValid] = useState(true)
-    const [errorText, setErrorText] = useState(undefined)
+    const [isStreetValid, setIsStreetValid] = useState(undefined)
+    const [isNumberValid, setIsNumberValid] = useState(undefined)
+    const [isNeighbourhoodValid, setIsNeighbourhoodValid] = useState(undefined)
+    const [isCityValid, setIsCityValid] = useState(undefined)
+    const [isStateValid, setIsStateValid] = useState(undefined)
+    const [errorText, setErrorText] = useState("")
 
     const [form, onChange] = useForm({
         street: "", 
@@ -39,7 +39,7 @@ export function AddAddressPage() {
 
     const editAddress = () => {
         setLoading(true)
-        
+
         axios.put(`${BASE_URL}/address`, form, { headers: {
             "auth": token
         }})
@@ -78,7 +78,7 @@ export function AddAddressPage() {
                 <Neighbourhood name="neighbourhood" value={form.neighbourhood} onChange={onChange} isValid={isNeighbourhoodValid}/>
                 <City name="city" value={form.city} onChange={onChange} isValid={isCityValid}/>
                 <State name="state" value={form.state} onChange={onChange} isValid={isStateValid}/>
-                <p>{errorText}.</p>
+                {errorText !== "" && <p>{errorText}.</p>}
                 {loading? <Button color={'#5cb646'} buttonTitle={<LoadingButtonLogin> </LoadingButtonLogin>} /> : <Button color={'#5cb646'} buttonTitle="Salvar"/>}
             </form>
         </AddressPageStyle>

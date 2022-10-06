@@ -21,11 +21,11 @@ export function SignupPage() {
 
     const [loading, setLoading] = useState(false)
     const [confirmPassword, setConfirmPassword] = useState("")
-    const [isEmailValid, setIsEmailValid] = useState(true)
-    const [isPasswordValid, setIsPasswordValid] = useState(true)
-    const [isCPFValid, setIsCPFValid] = useState(true)
+    const [isEmailValid, setIsEmailValid] = useState(undefined)
+    const [isPasswordValid, setIsPasswordValid] = useState(undefined)
+    const [isCPFValid, setIsCPFValid] = useState(undefined)
     const [isNameValid, setIsNameValid] = useState(true)
-    const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(true)
+    const [isConfirmPasswordValid, setIsConfirmPasswordValid] = useState(undefined)
     const [errorText, setErrorText] = useState("")
     
     const [form, onChange] = useForm({
@@ -37,7 +37,7 @@ export function SignupPage() {
 
     const signUp = () => {
         setLoading(true)
-        
+
         axios.post(`${BASE_URL}/signup`, form)
         .then((response) => {
             setLoading(false)
@@ -57,7 +57,7 @@ export function SignupPage() {
         setIsEmailValid(validateEmail(form.email))
         setIsPasswordValid(validatePassword(form.password))
         setIsCPFValid(validateCPF(form.cpf))
-        
+
         form.password === confirmPassword? setIsConfirmPasswordValid(true) : setIsConfirmPasswordValid(false)
 
         isEmailValid && isPasswordValid && isCPFValid && isNameValid && isConfirmPasswordValid && signUp() 
