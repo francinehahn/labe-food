@@ -10,6 +10,7 @@
 * [Link to access the app](#link-to-access-the-app)
 * [Technologies used](#technologies-used)
 * [Who made this project](#who-made-this-project)
+* [Installing](#installing)
 * [Conclusion](#conclusion)
 
 
@@ -64,6 +65,20 @@ https://documenter.getpostman.com/view/7549981/SWTEdGtT
 | [<img src="https://avatars.githubusercontent.com/u/102267713?v=4" width=115><br><sub>Francine Hahn</sub>](https://github.com/francinehahn) |  [<img src="https://avatars.githubusercontent.com/u/102439115?v=4" width=115><br><sub>Giovana Vieira</sub>](https://github.com/gioivieira) |  [<img src="https://avatars.githubusercontent.com/u/102297204?v=4" width=115><br><sub>Maria Fernandez</sub>](https://github.com/mariafmf) | 
 | :---: | :---: | :---: |
 | [<img src="https://avatars.githubusercontent.com/u/74737156?v=4" width=115><br><sub>Byron Smith</sub>](https://github.com/byron-smith-nobrega) |  [<img src="https://avatars.githubusercontent.com/u/102331990?v=4" width=115><br><sub>Samuel Garcia</sub>](https://github.com/Samuca010) | 
+
+
+# Installing
+<pre>
+  <code>$ git clone https://github.com/francinehahn/labe-food.git</code>
+</pre>
+
+<pre>
+  <code>$ cd labe-food</code>
+</pre>
+
+<pre>
+  <code>$ npm install</code>
+</pre>
 
 
 # Conclusion
