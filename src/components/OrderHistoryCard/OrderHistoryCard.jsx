@@ -11,15 +11,14 @@ export function OrderHistoryCard() {
   const ListHistory = data && data.orders.map((item, index) => {
     let subtotal = item.totalPrice.toFixed(2).toString().replace(".", ",")
 
-    let time = Date(item.createdAt)
-    let newTime = new Date(time)
-    
+    let newTime = new Date(item.createdAt)
+
     const formattedDate = newTime.toLocaleDateString("pt-br", {
       day: "numeric",
       month: "long",
       year: "numeric"
     })
-
+  
     return (
       <StyleCardHistory key={index}>
         <p>{item.restaurantName}</p>

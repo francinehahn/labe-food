@@ -51,7 +51,7 @@ https://documenter.getpostman.com/view/7549981/SWTEdGtT
 
 
 # Link to access the project
-[www.labefood.com](http://handsomely-planes.surge.sh/)
+[www.labefood.com](https://pink-bottle.surge.sh/)
 
 
 # Technologies used
