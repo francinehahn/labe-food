@@ -38,6 +38,8 @@ export function AddAddressPage() {
     })
 
     const editAddress = () => {
+        setLoading(true)
+        
         axios.put(`${BASE_URL}/address`, form, { headers: {
             "auth": token
         }})
@@ -54,7 +56,6 @@ export function AddAddressPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setLoading(true)
         setIsStreetValid(validateStreet(form.street))
         setIsNumberValid(validateNumber(form.number))
         setIsNeighbourhoodValid(validateNeighbourhood(form.neighbourhood))

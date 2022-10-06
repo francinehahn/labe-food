@@ -36,6 +36,8 @@ export function LoginPage() {
     })
 
     const login = () => {
+        setLoading(true)
+        
         axios.post(`${BASE_URL}/login`, form)
         .then((response) => {
             setLoading(false)
@@ -51,7 +53,6 @@ export function LoginPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setLoading(true)
         setIsEmailValid(validateEmail(form.email))
         setIsPasswordValid(validatePassword(form.password))
         isEmailValid && isPasswordValid && login()

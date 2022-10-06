@@ -36,6 +36,8 @@ export function SignupPage() {
     })
 
     const signUp = () => {
+        setLoading(true)
+        
         axios.post(`${BASE_URL}/signup`, form)
         .then((response) => {
             setLoading(false)
@@ -49,10 +51,8 @@ export function SignupPage() {
         })
     }
 
-    const onSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        setLoading(true)
-        
         setIsNameValid(validateName(form.name))
         setIsEmailValid(validateEmail(form.email))
         setIsPasswordValid(validatePassword(form.password))
@@ -74,7 +74,7 @@ export function SignupPage() {
                 <p>Cadastrar</p>
             </TextContainer>                
     
-            <form onSubmit={onSubmit}>
+            <form onSubmit={handleSubmit}>
                 <Name name="name" value={form.name} onChange={onChange} isValid={isNameValid}/>
                 <Email name="email" value={form.email} onChange={onChange} isValid={isEmailValid}/>
                 <CPF name="cpf" value={form.cpf} onChange={onChange} isValid={isCPFValid}/>
