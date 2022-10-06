@@ -50,7 +50,7 @@ https://documenter.getpostman.com/view/7549981/SWTEdGtT
 
 
 # Link to access the project
-[www.labefood.com](uttermost-impulse.surge.sh)
+[www.labefood.com](http://uttermost-impulse.surge.sh/)
 
 
 # Technologies used
