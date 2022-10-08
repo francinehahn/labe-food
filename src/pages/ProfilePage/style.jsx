@@ -9,8 +9,7 @@ export const ProfileStyle = styled.div `
       width: 328px;
       height: 18px;      
       font-size: 16px;
-      margin-top: 10px;
-      margin-left: 16px;
+      margin: 10px 0 0 16px;
       :nth-child(1){
         margin-top: 20px;
       }
@@ -61,7 +60,6 @@ export const StyleHistory = styled.section `
     font-size: 16px;
     width: 88vw;
     padding-bottom: 12px;
-    letter-spacing: -0.39px;
     border-bottom: 1px solid var(--black);
   }
 `

@@ -5,7 +5,7 @@ export const ContainerProductsRestaurant = styled.section `
   min-height: 120px;
   width: 88vw;
   border-radius: 8px;
-  border: solid 1px var(--greyish);
+  border: 1px solid var(--greyish);
   margin: 3% 0;
   img {
     width: 96px;

@@ -12,7 +12,6 @@ export const SignupPageStyle = styled.section `
     }
     form > p {
         margin: 0 32px;
-        letter-spacing: -0.29px;
         font-size: 12px;
         color: var(--red);
     }
@@ -33,8 +32,9 @@ export const LoadingButtonLogin = styled.div `
     border-radius: 50%;
     border: 3px solid black;
     border-bottom: 3px solid transparent;
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
+    padding-bottom: 10px;
     display: block;
     margin: 0 auto;
     

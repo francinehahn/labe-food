@@ -1,12 +1,12 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 export const LoadingSection = styled.div `
     border-radius: 50%;
     background-color: transparent;
     border: 6px solid var(--mid-green);
     border-bottom: 6px solid transparent;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: block;
     margin: 45vh auto;
     

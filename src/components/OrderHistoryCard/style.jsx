@@ -7,7 +7,6 @@ export const StyleCardHistory = styled.div `
     border-radius: 8px;
     border: 1px solid var(--greyish);
     p {
-        letter-spacing: -0.39px;
         padding: 3px 0;
         :nth-child(1) {
             font-size: 16px;

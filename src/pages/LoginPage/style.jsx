@@ -33,12 +33,10 @@ export const LoginPageStyle = styled.section `
 `
 
 export const TextContainer = styled.div `
-    width: 360px;
+    width: 88vw;
     height: 42px;
     padding: 12px 32px;
     p, a {
-        width: 296px;
-        height: 18px;
         text-align: center;
         color: var(--black);
         text-decoration: none;
