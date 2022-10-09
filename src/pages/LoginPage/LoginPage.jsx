@@ -27,7 +27,7 @@ export function LoginPage() {
     useEffect(() => {
         setTimeout(() => {
             setShowLogo(false)
-        }, 1500)
+        }, 2000)
     }, [])
 
     const [form, onChange] = useForm({
