@@ -18,6 +18,7 @@ export function FeedPage() {
     useProtectedPage()
 
     const [data, error, isLoading] = useRequestData(`${BASE_URL}/restaurants`, localStorage.getItem("token"))
+    const [activeOrder] = useRequestData(`${BASE_URL}/active-order`, localStorage.getItem("token"))
     const [category, setCategory] = useState("")
 
     const navigate = useNavigate()    
@@ -28,6 +29,7 @@ export function FeedPage() {
         }
     })
     
+
     return (
         <FeedPageStyle>
             <Header showArrow={'false'} showTitle={'true'} title={'FutureEats'}/>
@@ -53,7 +55,7 @@ export function FeedPage() {
 
                 <CardsContainer>
                     {restaurantsList}
-                    {localStorage.getItem("orderInProgress")==="true" && <OrderBanner/>}
+                    {activeOrder && <OrderBanner name={activeOrder.order.restaurantName} price={activeOrder.order.totalPrice}/>}
                 </CardsContainer>          
 
                 </>

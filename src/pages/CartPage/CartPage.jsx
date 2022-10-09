@@ -36,14 +36,6 @@ export function CartPage() {
         setPaymentType(e.target.value)
         setPaymentIsSelected(true)
     }
-    
-    const finishOrder = () => {
-        const time = productsInCart[0].time * 60 * 1000
-        setTimeout(() => {
-            localStorage.setItem("orderInProgress", "false")
-            location.reload()
-        }, time)
-    }
 
     const handleOrder = () => {
         if (paymentType === "") {
@@ -70,14 +62,10 @@ export function CartPage() {
             headers: {
                 auth: localStorage.getItem("token")
             }
-        }).then((response) => {
-            localStorage.setItem("orderInProgress", "true")
-            localStorage.setItem("restaurantName", response.data.order.restaurantName)
-            localStorage.setItem("price", response.data.order.totalPrice)
+        }).then(() => {
             localStorage.setItem("ProductCart", JSON.stringify([]))
             setReload(!reload)
             alert('Pedido realizado com sucesso!')
-            finishOrder()
         }).catch((err) => {
             if (err.message === 'Request failed with status code 409') {
                 alert("Você já tem um pedido em andamento. Aguarde a finalização deste para concluir uma nova compra.")
