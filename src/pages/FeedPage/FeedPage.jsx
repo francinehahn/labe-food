@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 import {Header} from '../../components/Header/Header'
 import {ButtonSearch, FeedPageStyle, FiltersContainer, CardsContainer} from './style'
 import {HiOutlineSearch} from 'react-icons/hi'
@@ -18,9 +19,10 @@ export function FeedPage() {
     useProtectedPage()
 
     const [data, error, isLoading] = useRequestData(`${BASE_URL}/restaurants`, localStorage.getItem("token"))
-    const [activeOrder] = useRequestData(`${BASE_URL}/active-order`, localStorage.getItem("token"))
+    const [restaurantNameBanner, setRestaurantNameBanner] = useState(null)
+    const [priceBanner, setPriceBanner] = useState(null)
     const [category, setCategory] = useState("")
-
+    
     const navigate = useNavigate()    
 
     const restaurantsList = data && data.restaurants.map((restaurant) => {
@@ -29,6 +31,25 @@ export function FeedPage() {
         }
     })
     
+    const getActiveOrder = () => {
+        axios.get(`${BASE_URL}/active-order`, {
+            headers: {
+                auth: localStorage.getItem("token")
+            }
+        }).then(response => {
+            if (response.data.order !== null) {
+                setRestaurantNameBanner(response.data.order.restaurantName)
+                setPriceBanner(response.data.order.totalPrice)
+            } else {
+                setRestaurantNameBanner(null)
+                setPriceBanner(null)
+            }
+        }).catch(err => alert(err))
+    }
+
+    useEffect(() => {
+        getActiveOrder()
+    }, [])
 
     return (
         <FeedPageStyle>
@@ -55,7 +76,9 @@ export function FeedPage() {
 
                 <CardsContainer>
                     {restaurantsList}
-                    {activeOrder && <OrderBanner name={activeOrder.order.restaurantName} price={activeOrder.order.totalPrice}/>}
+                    {(restaurantNameBanner !== null) &&
+                        <OrderBanner name={restaurantNameBanner} price={priceBanner}/>
+                    }
                 </CardsContainer>          
 
                 </>

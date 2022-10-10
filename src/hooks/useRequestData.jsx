@@ -22,7 +22,7 @@ export function useRequestData(url, token) {
             setIsLoading(false)
             setError(er.response.data.message.message)
         })
-    }, [reload])
+    }, [url, reload])
 
     return [data, error, isLoading, reload, setReload]
 }
