@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from "styled-components"
+
 
 export const Container = styled.section `
     display: grid;
@@ -43,7 +44,7 @@ export const Container = styled.section `
                 display: grid;
                 grid-template-columns: 50% 50%;
                 strong {
-                    padding: 0 0 15px 15px;
+                    padding: 0 0 10px 15px;
                 }
                 button {
                     width: 90px;
@@ -53,15 +54,15 @@ export const Container = styled.section `
                     color: var(--red);
                     background-color: transparent;
                     position: absolute;
-                    bottom: 0;
+                    bottom: -1px;
                     right: 0;
                 }
             }
         }
         span {
             font-size: 12px;
-            color: var(greyish);
-            padding: 5px 15px 5px 15px;
+            color: var(--greyish);
+            padding: 5px 15px;
         }
     }
 `

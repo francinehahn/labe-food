@@ -51,7 +51,7 @@ https://documenter.getpostman.com/view/7549981/SWTEdGtT
 
 
 # Link to access the project
-[www.labefood.com](https://absurd-birds.surge.sh/)
+[www.labefood.com](https://cool-throne.surge.sh/)
 
 
 # Technologies used
