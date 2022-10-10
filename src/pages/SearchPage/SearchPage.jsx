@@ -17,12 +17,12 @@ export function SearchPage() {
     const [data, error, isLoading] = useRequestData(`${BASE_URL}/restaurants`, localStorage.getItem("token"))
     const [form, onChange] = useForm({restaurant: ""})
 
-    const filteredRestaurants = data && data.restaurants.map((restaurantSearch) => {
+    const filteredRestaurants = data && data.restaurants.map(restaurantSearch => {
         if(restaurantSearch.name.toLowerCase().includes(form.restaurant.toLowerCase())) {
             return <RestaurantButtonCard restaurant={restaurantSearch} key={restaurantSearch.id}/>
         }
     })   
-
+  
     return (
         <>
         <Header showArrow={'true'} showTitle={'true'} title={'Busca'}/>
